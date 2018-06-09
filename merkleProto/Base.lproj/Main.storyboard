@@ -70,6 +70,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <size key="freeformSize" width="1000" height="1000"/>
+                    <connections>
+                        <outlet property="roomView" destination="j9s-HG-ImD" id="T3u-RP-xJm"/>
+                        <outlet property="scrollView" destination="IiB-Zf-pyN" id="o9a-KM-EDB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

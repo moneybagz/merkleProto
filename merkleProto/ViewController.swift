@@ -8,18 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var roomView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // For Zooming
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 0.5
+        scrollView.maximumZoomScale = 2.0
+        scrollView.zoomScale = 1.0
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //Scroll View delegate for zooming
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return roomView
+    }
 
 }
 
