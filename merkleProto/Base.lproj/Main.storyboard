@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,74 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-Zf-pyN">
+                                <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-HG-ImD">
+                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carpet4" translatesAutoresizingMaskIntoConstraints="NO" id="FAO-jE-kDc">
+                                                <rect key="frame" x="71" y="361" width="929" height="495"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shelfy" translatesAutoresizingMaskIntoConstraints="NO" id="w0c-XD-VF5">
+                                                <rect key="frame" x="-124" y="-20" width="765" height="548"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artWcanvas" translatesAutoresizingMaskIntoConstraints="NO" id="s9a-LE-Pbg">
+                                                <rect key="frame" x="208" y="28" width="963" height="513"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bed1" translatesAutoresizingMaskIntoConstraints="NO" id="VIq-8P-cf4">
+                                                <rect key="frame" x="137" y="217" width="828" height="441"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="merky!" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-Iq-Ljr">
+                                                <rect key="frame" x="104" y="269" width="441" height="315"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1000" id="BaL-lE-0cT"/>
+                                            <constraint firstAttribute="height" constant="1000" id="d2v-Nh-eoa"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="j9s-HG-ImD" secondAttribute="trailing" id="A7Z-Yy-zXs"/>
+                                    <constraint firstItem="j9s-HG-ImD" firstAttribute="top" secondItem="IiB-Zf-pyN" secondAttribute="top" id="Nn2-hr-R2W"/>
+                                    <constraint firstAttribute="bottom" secondItem="j9s-HG-ImD" secondAttribute="bottom" id="Q29-0t-WDO"/>
+                                    <constraint firstItem="j9s-HG-ImD" firstAttribute="leading" secondItem="IiB-Zf-pyN" secondAttribute="leading" id="ZLI-sT-XLb"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IiB-Zf-pyN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="22x-HR-dzD"/>
+                            <constraint firstItem="IiB-Zf-pyN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6gA-Cl-Dmw"/>
+                            <constraint firstItem="IiB-Zf-pyN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SU1-YT-ppQ"/>
+                            <constraint firstItem="IiB-Zf-pyN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="e63-44-jxh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <size key="freeformSize" width="1000" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="115.94202898550725" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="artWcanvas" width="1024" height="1083"/>
+        <image name="bed1" width="2924" height="2905"/>
+        <image name="carpet4" width="1574" height="1156"/>
+        <image name="merky!" width="2942" height="3018"/>
+        <image name="shelfy" width="3024" height="2835"/>
+    </resources>
 </document>
