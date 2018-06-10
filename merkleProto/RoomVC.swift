@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class RoomVC: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var roomView: UIView!
@@ -33,5 +33,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return roomView
     }
 
+    @IBAction func unwind(_ sender: UIStoryboardSegue){}
 }
 

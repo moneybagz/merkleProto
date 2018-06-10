@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RoomVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RoomVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-Zf-pyN">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiB-Zf-pyN">
                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-HG-ImD">
@@ -52,6 +52,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="j9s-HG-ImD" secondAttribute="trailing" id="A7Z-Yy-zXs"/>
                                     <constraint firstItem="j9s-HG-ImD" firstAttribute="top" secondItem="IiB-Zf-pyN" secondAttribute="top" id="Nn2-hr-R2W"/>
@@ -59,11 +60,25 @@
                                     <constraint firstItem="j9s-HG-ImD" firstAttribute="leading" secondItem="IiB-Zf-pyN" secondAttribute="leading" id="ZLI-sT-XLb"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRa-lv-aga">
+                                <rect key="frame" x="20" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.81176470590000005" green="0.84313725490000002" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6cK-vz-iSA"/>
+                                    <constraint firstAttribute="height" constant="50" id="d9Z-UN-0yX"/>
+                                </constraints>
+                                <state key="normal" title="MENU"/>
+                                <connections>
+                                    <segue destination="aqw-Vh-Qv3" kind="show" id="PFb-Gb-EXn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IiB-Zf-pyN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="22x-HR-dzD"/>
+                            <constraint firstItem="gRa-lv-aga" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5e2-bX-p9R"/>
                             <constraint firstItem="IiB-Zf-pyN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6gA-Cl-Dmw"/>
+                            <constraint firstItem="gRa-lv-aga" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lmx-GT-73F"/>
                             <constraint firstItem="IiB-Zf-pyN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SU1-YT-ppQ"/>
                             <constraint firstItem="IiB-Zf-pyN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="e63-44-jxh"/>
                         </constraints>
@@ -77,7 +92,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115.94202898550725" y="117.39130434782609"/>
+            <point key="canvasLocation" x="114.375" y="116.25"/>
+        </scene>
+        <!--MenuVC-->
+        <scene sceneID="90H-MO-lW4">
+            <objects>
+                <viewController id="aqw-Vh-Qv3" customClass="MenuVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6dX-cn-yON">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-8i-Btt">
+                                <rect key="frame" x="30" y="10" width="73" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <segue destination="MA0-vF-e9r" kind="unwind" unwindAction="unwind:" id="Udg-Zt-uc5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBG-Cc-Nr3">
+                                <rect key="frame" x="30" y="208" width="245" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SHOP"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-Hd-mBY">
+                                <rect key="frame" x="30" y="112" width="245" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MONEY"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Hpk-gt-G4R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="56p-rD-Zyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MA0-vF-e9r" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1620" y="-210"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4Jc-mU-cuj">
+            <objects>
+                <viewController id="gpp-d1-AEe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nch-08-Z32">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dtA-lV-Met"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mnt-qI-hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2659" y="342"/>
         </scene>
     </scenes>
     <resources>
