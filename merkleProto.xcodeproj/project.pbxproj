@@ -13,6 +13,9 @@
 		53C659E820C9A384001B7DAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C659E720C9A384001B7DAF /* Assets.xcassets */; };
 		53C659EB20C9A384001B7DAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C659E920C9A384001B7DAF /* LaunchScreen.storyboard */; };
 		53C659F320CC9BD2001B7DAF /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659F220CC9BD2001B7DAF /* MenuVC.swift */; };
+		53C659F620CCD481001B7DAF /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659F520CCD481001B7DAF /* Thing.swift */; };
+		53C659F920CF0452001B7DAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53C659F820CF0451001B7DAF /* GoogleService-Info.plist */; };
+		D0A299302D3DF2E15A350EB0 /* Pods_merkleProto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D185EBEEC4BFE6B58A1A75 /* Pods_merkleProto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,11 @@
 		53C659EA20C9A384001B7DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53C659EC20C9A384001B7DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53C659F220CC9BD2001B7DAF /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		53C659F520CCD481001B7DAF /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		53C659F820CF0451001B7DAF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		872AD4BCAA9A9E989B899C7A /* Pods-merkleProto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-merkleProto.release.xcconfig"; path = "Pods/Target Support Files/Pods-merkleProto/Pods-merkleProto.release.xcconfig"; sourceTree = "<group>"; };
+		99D185EBEEC4BFE6B58A1A75 /* Pods_merkleProto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_merkleProto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A67CFD52010A6EA6079F9B0D /* Pods-merkleProto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-merkleProto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-merkleProto/Pods-merkleProto.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A299302D3DF2E15A350EB0 /* Pods_merkleProto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0788138AD7018360518114 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99D185EBEEC4BFE6B58A1A75 /* Pods_merkleProto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		53C659D420C9A382001B7DAF = {
 			isa = PBXGroup;
 			children = (
 				53C659DF20C9A382001B7DAF /* merkleProto */,
 				53C659DE20C9A382001B7DAF /* Products */,
+				B9AF43EBD1772A38650ABDA8 /* Pods */,
+				3B0788138AD7018360518114 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +76,41 @@
 			isa = PBXGroup;
 			children = (
 				53C659E020C9A382001B7DAF /* AppDelegate.swift */,
-				53C659E220C9A382001B7DAF /* RoomVC.swift */,
-				53C659F220CC9BD2001B7DAF /* MenuVC.swift */,
+				53C659F420CCD45B001B7DAF /* Model */,
+				53C659F720CD05C5001B7DAF /* Controller */,
 				53C659E420C9A382001B7DAF /* Main.storyboard */,
 				53C659E720C9A384001B7DAF /* Assets.xcassets */,
 				53C659E920C9A384001B7DAF /* LaunchScreen.storyboard */,
 				53C659EC20C9A384001B7DAF /* Info.plist */,
+				53C659F820CF0451001B7DAF /* GoogleService-Info.plist */,
 			);
 			path = merkleProto;
+			sourceTree = "<group>";
+		};
+		53C659F420CCD45B001B7DAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				53C659F520CCD481001B7DAF /* Thing.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		53C659F720CD05C5001B7DAF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53C659E220C9A382001B7DAF /* RoomVC.swift */,
+				53C659F220CC9BD2001B7DAF /* MenuVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B9AF43EBD1772A38650ABDA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A67CFD52010A6EA6079F9B0D /* Pods-merkleProto.debug.xcconfig */,
+				872AD4BCAA9A9E989B899C7A /* Pods-merkleProto.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53C659EF20C9A384001B7DAF /* Build configuration list for PBXNativeTarget "merkleProto" */;
 			buildPhases = (
+				28B46DA196578DB0C6B3B8B2 /* [CP] Check Pods Manifest.lock */,
 				53C659D920C9A382001B7DAF /* Sources */,
 				53C659DA20C9A382001B7DAF /* Frameworks */,
 				53C659DB20C9A382001B7DAF /* Resources */,
+				E67320422D7FBB4047CA430B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C659EB20C9A384001B7DAF /* LaunchScreen.storyboard in Resources */,
+				53C659F920CF0452001B7DAF /* GoogleService-Info.plist in Resources */,
 				53C659E820C9A384001B7DAF /* Assets.xcassets in Resources */,
 				53C659E620C9A382001B7DAF /* Main.storyboard in Resources */,
 			);
@@ -133,11 +182,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28B46DA196578DB0C6B3B8B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-merkleProto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E67320422D7FBB4047CA430B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-merkleProto/Pods-merkleProto-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-merkleProto/Pods-merkleProto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		53C659D920C9A382001B7DAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C659F620CCD481001B7DAF /* Thing.swift in Sources */,
 				53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */,
 				53C659F320CC9BD2001B7DAF /* MenuVC.swift in Sources */,
 				53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */,
@@ -282,6 +377,7 @@
 		};
 		53C659F020C9A384001B7DAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A67CFD52010A6EA6079F9B0D /* Pods-merkleProto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +395,7 @@
 		};
 		53C659F120C9A384001B7DAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872AD4BCAA9A9E989B899C7A /* Pods-merkleProto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
