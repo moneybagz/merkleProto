@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -99,7 +99,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="ftB-gO-xRI" customClass="LoginVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9J7-Pr-foE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1i-jv-B23">
@@ -139,14 +139,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-ZC-OoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9Qp-jw-TSQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1346" y="-209"/>
+            <point key="canvasLocation" x="-1126" y="8"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="90H-MO-lW4">
             <objects>
                 <viewController id="aqw-Vh-Qv3" customClass="MenuVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6dX-cn-yON">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-8i-Btt">
@@ -185,16 +185,25 @@
             <objects>
                 <viewController storyboardIdentifier="MoneyVC" id="gpp-d1-AEe" customClass="MoneyVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nch-08-Z32">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXv-MO-QIV">
-                                <rect key="frame" x="94" y="59" width="133" height="132"/>
+                                <rect key="frame" x="141" y="74" width="133" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="get money"/>
                                 <connections>
                                     <action selector="getMoneyBtnPressed:" destination="gpp-d1-AEe" eventType="touchUpInside" id="PFS-Vr-flG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kux-0y-Y6h">
+                                <rect key="frame" x="43" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="backBtnPressed:" destination="gpp-d1-AEe" eventType="touchUpInside" id="okd-Ln-pbc"/>
                                 </connections>
                             </button>
                         </subviews>

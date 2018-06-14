@@ -17,6 +17,9 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //var user = Auth.auth().currentUser!.uid)
+        
+        
         //FIREBASE SIGNOUT
         do {
             try Auth.auth().signOut()

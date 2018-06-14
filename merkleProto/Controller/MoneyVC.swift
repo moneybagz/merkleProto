@@ -16,12 +16,31 @@ class MoneyVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if Auth.auth().currentUser == nil {
+            print("current user doesnt exists")
+        }
+        if Auth.auth().currentUser?.uid == nil {
+            print("uid doesnt exist")
+        }
+        
+        DataService.instance.getTimeStamp(withUID: Auth.auth().currentUser!.uid) { (timeStamp) in
+            //print("\(timeStamp)!!!!!!!!!!!!!!")
+        }
+    }
 
     @IBAction func getMoneyBtnPressed(_ sender: Any) {
-        DataService.instance.createTimeStamp(withUid: (Auth.auth().currentUser?.uid)!)
+        
+        DataService.instance.createTimeStamp(withUid: Auth.auth().currentUser!.uid)
     }
     
-
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
