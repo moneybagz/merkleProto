@@ -123,6 +123,9 @@
                                 <rect key="frame" x="111" y="244" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIGN IN"/>
+                                <connections>
+                                    <action selector="SignInBtnPressed:" destination="ftB-gO-xRI" eventType="touchUpInside" id="vdd-nd-Avb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,7 +134,6 @@
                     <connections>
                         <outlet property="emailField" destination="c1i-jv-B23" id="emY-0V-l24"/>
                         <outlet property="passwordField" destination="vzT-G0-UYv" id="gRI-ZW-0C1"/>
-                        <outlet property="signInBtnPressed" destination="VEV-Nu-PQ8" id="0M9-4Q-zSd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-ZC-OoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
