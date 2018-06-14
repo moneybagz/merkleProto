@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RoomVC: UIViewController, UIScrollViewDelegate {
 
@@ -15,6 +16,13 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //FIREBASE SIGNOUT
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
         
         // For Zooming
         scrollView.delegate = self

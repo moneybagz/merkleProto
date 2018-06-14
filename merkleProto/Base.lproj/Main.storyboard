@@ -139,7 +139,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-ZC-OoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9Qp-jw-TSQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1419" y="-209"/>
+            <point key="canvasLocation" x="-1346" y="-209"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="90H-MO-lW4">
@@ -166,6 +166,9 @@
                                 <rect key="frame" x="30" y="112" width="245" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="MONEY"/>
+                                <connections>
+                                    <action selector="moneyBtnPressed:" destination="aqw-Vh-Qv3" eventType="touchUpInside" id="sJe-4N-7E1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -177,20 +180,31 @@
             </objects>
             <point key="canvasLocation" x="1620" y="-210"/>
         </scene>
-        <!--View Controller-->
+        <!--MoneyVC-->
         <scene sceneID="4Jc-mU-cuj">
             <objects>
-                <viewController id="gpp-d1-AEe" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoneyVC" id="gpp-d1-AEe" customClass="MoneyVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nch-08-Z32">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXv-MO-QIV">
+                                <rect key="frame" x="94" y="59" width="133" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="get money"/>
+                                <connections>
+                                    <action selector="getMoneyBtnPressed:" destination="gpp-d1-AEe" eventType="touchUpInside" id="PFS-Vr-flG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dtA-lV-Met"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnt-qI-hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="-209"/>
+            <point key="canvasLocation" x="2330.625" y="-210"/>
         </scene>
     </scenes>
     <resources>

@@ -27,5 +27,12 @@ class DataService {
     
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
+        //Auth.auth().currentUser?.uid
     }
+    
+    func createTimeStamp(withUid uid: String) {
+        REF_USERS.child(uid).updateChildValues(["timestamp": ServerValue.timestamp()] as [String : Any])
+    }
+    
+    
 }

@@ -12,6 +12,6 @@ class Thing {
     
     var openToBuy: Bool!
     var bought: Bool!
-    var imageMeta: String!
+    var imageUrl: String!
     var cost: Int!
 }

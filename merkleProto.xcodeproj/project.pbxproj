@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5343E6A520D1DEA800C7A68A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343E6A420D1DEA800C7A68A /* LoginVC.swift */; };
+		5343E6A720D2163B00C7A68A /* MoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343E6A620D2163B00C7A68A /* MoneyVC.swift */; };
 		53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E020C9A382001B7DAF /* AppDelegate.swift */; };
 		53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E220C9A382001B7DAF /* RoomVC.swift */; };
 		53C659E620C9A382001B7DAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C659E420C9A382001B7DAF /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		5343E6A420D1DEA800C7A68A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		5343E6A620D2163B00C7A68A /* MoneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyVC.swift; sourceTree = "<group>"; };
 		53C659DD20C9A382001B7DAF /* merkleProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = merkleProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C659E020C9A382001B7DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C659E220C9A382001B7DAF /* RoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomVC.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				53C659E220C9A382001B7DAF /* RoomVC.swift */,
 				53C659F220CC9BD2001B7DAF /* MenuVC.swift */,
 				5343E6A420D1DEA800C7A68A /* LoginVC.swift */,
+				5343E6A620D2163B00C7A68A /* MoneyVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53C659F620CCD481001B7DAF /* Thing.swift in Sources */,
+				5343E6A720D2163B00C7A68A /* MoneyVC.swift in Sources */,
 				53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */,
 				5343E6A520D1DEA800C7A68A /* LoginVC.swift in Sources */,
 				53C659F320CC9BD2001B7DAF /* MenuVC.swift in Sources */,

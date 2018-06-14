@@ -1,14 +1,15 @@
 //
-//  MenuViewController.swift
+//  MoneyVC.swift
 //  merkleProto
 //
-//  Created by Clyfford Millet on 6/9/18.
+//  Created by Clyfford Millet on 6/13/18.
 //  Copyright © 2018 Clyff Millet. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
-class MenuVC: UIViewController {
+class MoneyVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,14 +17,8 @@ class MenuVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func moneyBtnPressed(_ sender: Any) {
-        let moneyVC = self.storyboard?.instantiateViewController(withIdentifier: "MoneyVC") as! MoneyVC
-        present(moneyVC, animated: true, completion: nil)
+    @IBAction func getMoneyBtnPressed(_ sender: Any) {
+        DataService.instance.createTimeStamp(withUid: (Auth.auth().currentUser?.uid)!)
     }
     
 

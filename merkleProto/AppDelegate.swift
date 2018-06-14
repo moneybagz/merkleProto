@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        // LoginVC INITIAL VIEW IF NOT LOGGED IN
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
