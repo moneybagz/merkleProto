@@ -94,6 +94,51 @@
             </objects>
             <point key="canvasLocation" x="114.375" y="116.25"/>
         </scene>
+        <!--LoginVC-->
+        <scene sceneID="SeA-r1-eRH">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="ftB-gO-xRI" customClass="LoginVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9J7-Pr-foE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1i-jv-B23">
+                                <rect key="frame" x="64" y="96" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="loginTextField:" destination="9Qp-jw-TSQ" eventType="editingDidEnd" id="LdX-PC-hjC"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzT-G0-UYv">
+                                <rect key="frame" x="64" y="165" width="193" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEV-Nu-PQ8">
+                                <rect key="frame" x="111" y="244" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SIGN IN"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sBW-uD-fuV"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailField" destination="c1i-jv-B23" id="emY-0V-l24"/>
+                        <outlet property="passwordField" destination="vzT-G0-UYv" id="gRI-ZW-0C1"/>
+                        <outlet property="signInBtnPressed" destination="VEV-Nu-PQ8" id="0M9-4Q-zSd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-ZC-OoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9Qp-jw-TSQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1419" y="-209"/>
+        </scene>
         <!--MenuVC-->
         <scene sceneID="90H-MO-lW4">
             <objects>
