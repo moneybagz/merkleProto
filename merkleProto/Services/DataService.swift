@@ -34,28 +34,12 @@ class DataService {
     }
     
     func getTimeStamp(withUID uid: String, handler: @escaping (_ timeStamp: NSNumber) -> ()) {
-        REF_USERS.child(uid).child("timeStamp").observe(.value) { (timeSnapshot) in
+        REF_USERS.child(uid).child("timeStamp").observeSingleEvent(of: .value) { (timeSnapshot) in
             if let t = timeSnapshot.value as? NSNumber {
-                // Cast the value to an NSTimeInterval
-                // and divide by 1000 to get seconds.
                 print("\(t)")
                 handler(t)
             } else { return }
-//            guard let time = timeSnapshot.value as? [DataSnapshot] else { return }
-//            let number = time["timeStamp"]
-//            if let number = time as? TimeInterval {
-//                print("\(number)")
-//            }
         }
-        
-//        ref.observeEventType(.Value, withBlock: {
-//            snap in
-//            if let t = snap.value as? NSTimeInterval {
-//                // Cast the value to an NSTimeInterval
-//                // and divide by 1000 to get seconds.
-//                println(NSDate(timeIntervalSince1970: t/1000))
-//            }
-//        })
     }
     
     
