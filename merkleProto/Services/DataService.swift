@@ -42,5 +42,16 @@ class DataService {
         }
     }
     
+    func createSecondTimeStamp(withUid uid: String) {
+        REF_USERS.child(uid).updateChildValues(["secondTimeStamp": ServerValue.timestamp()] as [String : Any])
+    }
     
+    func getSecondTimeStamp(withUID uid: String, handler: @escaping (_ timeStamp: NSNumber) -> ()) {
+        REF_USERS.child(uid).child("secondTimeStamp").observeSingleEvent(of: .value) { (timeSnapshot) in
+            if let t = timeSnapshot.value as? NSNumber {
+                print("\(t)")
+                handler(t)
+            } else { return }
+        }
+    }
 }
