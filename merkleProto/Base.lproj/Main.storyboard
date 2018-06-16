@@ -210,6 +210,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dtA-lV-Met"/>
                     </view>
+                    <connections>
+                        <outlet property="getMoneyBtn" destination="nXv-MO-QIV" id="rhG-RI-ZDM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnt-qI-hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

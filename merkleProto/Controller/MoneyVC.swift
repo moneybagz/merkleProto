@@ -11,16 +11,22 @@ import Firebase
 
 class MoneyVC: UIViewController {
     
+    @IBOutlet var getMoneyBtn: UIButton!
+    
     var timeStampOne: NSNumber?
     var timeStampTwo: NSNumber?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getMoneyBtn.isHidden = UserDefaults.standard.bool(forKey: "hidden")
 
-        DataService.instance.getTimeStamp(withUID: Auth.auth().currentUser!.uid) { (timeStamp) in
-            self.timeStampOne = timeStamp
-            
-            self.timeComparison()
+        if UserDefaults.standard.bool(forKey: "hidden") == true {
+            DataService.instance.getTimeStamp(withUID: Auth.auth().currentUser!.uid) { (timeStamp) in
+                self.timeStampOne = timeStamp
+                
+                self.timeComparison()
+            }
         }
     }
     
@@ -39,6 +45,13 @@ class MoneyVC: UIViewController {
             //Get rid of miliseconds
             let seconds = range / 1000
             print("\(seconds)@@@@@@")
+            
+            //If 15 minutes has elapsed, user can get more money
+            if seconds > 60 {
+                self.getMoneyBtn.isHidden = false
+                
+                UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
+            }
         }
     }
     
@@ -46,20 +59,13 @@ class MoneyVC: UIViewController {
         
         DataService.instance.createTimeStamp(withUid: Auth.auth().currentUser!.uid)
     
+        getMoneyBtn.isHidden = true
+        
+        // button hidden persistence
+        UserDefaults.standard.set(getMoneyBtn.isHidden, forKey: "hidden")
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
