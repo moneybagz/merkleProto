@@ -12,22 +12,30 @@ import Firebase
 class MoneyVC: UIViewController {
     
     @IBOutlet var getMoneyBtn: UIButton!
+    @IBOutlet var timeLabel: UILabel!
     
     var timeStampOne: NSNumber?
     var timeStampTwo: NSNumber?
+    
+    var countdownTimer: Timer!
+    var totalTime: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getMoneyBtn.isHidden = UserDefaults.standard.bool(forKey: "hidden")
 
+        getTimeStamps()
+    }
+    
+    func getTimeStamps() {
         if UserDefaults.standard.bool(forKey: "hidden") == true {
             DataService.instance.getTimeStamp(withUID: Auth.auth().currentUser!.uid) { (timeStamp) in
                 self.timeStampOne = timeStamp
                 
                 self.timeComparison()
             }
-        }
+        } else { return }
     }
     
     func timeComparison() {
@@ -46,13 +54,39 @@ class MoneyVC: UIViewController {
             let seconds = range / 1000
             print("\(seconds)@@@@@@")
             
-            //If 15 minutes has elapsed, user can get more money
-            if seconds > 60 {
+            //User can get money after 15 minutes expires
+            if seconds > 90 {
                 self.getMoneyBtn.isHidden = false
                 
                 UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
+            } else {
+                self.totalTime = Int(90 - seconds)
+                self.startTimer()
             }
         }
+    }
+    
+    func startTimer() {
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self,      selector: #selector(self.updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTime() {
+        timeLabel.text = "\(timeFormatted(totalTime))"
+        
+        if totalTime != 0 {
+            totalTime -= 1
+        } else {
+            countdownTimer.invalidate()
+            getMoneyBtn.isHidden = false
+            UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
+        }
+    }
+    
+    func timeFormatted(_ totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        //     let hours: Int = totalSeconds / 3600
+        return String(format: "%02d:%02d", minutes, seconds)
     }
     
     @IBAction func getMoneyBtnPressed(_ sender: Any) {
@@ -63,6 +97,8 @@ class MoneyVC: UIViewController {
         
         // button hidden persistence
         UserDefaults.standard.set(getMoneyBtn.isHidden, forKey: "hidden")
+        
+        getTimeStamps()
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
