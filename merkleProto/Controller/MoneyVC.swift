@@ -17,18 +17,24 @@ class MoneyVC: UIViewController {
     var timeStampOne: NSNumber?
     var timeStampTwo: NSNumber?
     
-    var countdownTimer: Timer!
+    var countdownTimer: Timer?
     var totalTime: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //so countdownTimer won't be called twice doubling its time
+        NotificationCenter.default.addObserver(self, selector: #selector(resetTotalTime), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        // Notifications that handle timer when going to background state
+        NotificationCenter.default.addObserver(self, selector: #selector(getTimeStamps), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
         
         getMoneyBtn.isHidden = UserDefaults.standard.bool(forKey: "hidden")
 
         getTimeStamps()
     }
     
-    func getTimeStamps() {
+    
+    @objc func getTimeStamps() {
         if UserDefaults.standard.bool(forKey: "hidden") == true {
             DataService.instance.getTimeStamp(withUID: Auth.auth().currentUser!.uid) { (timeStamp) in
                 self.timeStampOne = timeStamp
@@ -57,6 +63,8 @@ class MoneyVC: UIViewController {
                 //User can get money after 15 minutes expires
                 if seconds > 90 {
                     self.getMoneyBtn.isHidden = false
+                    // if from backgroundstate timer has elaspsed, reset timelabel
+                    self.timeLabel.text = ""
                     
                     UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
                 } else {
@@ -68,6 +76,7 @@ class MoneyVC: UIViewController {
     }
     
     func startTimer() {
+        
         countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self,      selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
     
@@ -77,7 +86,7 @@ class MoneyVC: UIViewController {
         if totalTime != 0 {
             totalTime -= 1
         } else {
-            countdownTimer.invalidate()
+            countdownTimer?.invalidate()
             timeLabel.text = ""
             getMoneyBtn.isHidden = false
             UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
@@ -91,6 +100,13 @@ class MoneyVC: UIViewController {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    @objc func resetTotalTime() {
+        if countdownTimer != nil {
+            countdownTimer?.invalidate()
+        }
+    }
+
+    
     @IBAction func getMoneyBtnPressed(_ sender: Any) {
         
         // Use completion block to call get after push has been completed
@@ -103,9 +119,6 @@ class MoneyVC: UIViewController {
             
             self.getTimeStamps()
         }
-    
-        
-        
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
