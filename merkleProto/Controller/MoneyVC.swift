@@ -39,29 +39,30 @@ class MoneyVC: UIViewController {
     }
     
     func timeComparison() {
-        DataService.instance.createSecondTimeStamp(withUid: Auth.auth().currentUser!.uid)
+        DataService.instance.createSecondTimeStamp(withUid: Auth.auth().currentUser!.uid) {
         
-        DataService.instance.getSecondTimeStamp(withUID: Auth.auth().currentUser!.uid) { (secondTimeStamp) in
-            self.timeStampTwo = secondTimeStamp
-            
-            //Convert NSNumber to int64 to do math
-            let timeOneInt = self.timeStampOne?.int64Value
-            let timeTwoInt = self.timeStampTwo?.int64Value
-            
-            print("\(String(describing: timeTwoInt)) - \(String(describing: timeOneInt)) = \(timeTwoInt! - timeOneInt!)")
-            let range = timeTwoInt! - timeOneInt!
-            //Get rid of miliseconds
-            let seconds = range / 1000
-            print("\(seconds)@@@@@@")
-            
-            //User can get money after 15 minutes expires
-            if seconds > 90 {
-                self.getMoneyBtn.isHidden = false
+            DataService.instance.getSecondTimeStamp(withUID: Auth.auth().currentUser!.uid) { (secondTimeStamp) in
+                self.timeStampTwo = secondTimeStamp
                 
-                UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
-            } else {
-                self.totalTime = Int(90 - seconds)
-                self.startTimer()
+                //Convert NSNumber to int64 to do math
+                let timeOneInt = self.timeStampOne?.int64Value
+                let timeTwoInt = self.timeStampTwo?.int64Value
+                
+                print("\(String(describing: timeTwoInt)) - \(String(describing: timeOneInt)) = \(timeTwoInt! - timeOneInt!)")
+                let range = timeTwoInt! - timeOneInt!
+                //Get rid of miliseconds
+                let seconds = range / 1000
+                print("\(seconds)@@@@@@")
+                
+                //User can get money after 15 minutes expires
+                if seconds > 90 {
+                    self.getMoneyBtn.isHidden = false
+                    
+                    UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
+                } else {
+                    self.totalTime = Int(90 - seconds)
+                    self.startTimer()
+                }
             }
         }
     }
@@ -77,6 +78,7 @@ class MoneyVC: UIViewController {
             totalTime -= 1
         } else {
             countdownTimer.invalidate()
+            timeLabel.text = ""
             getMoneyBtn.isHidden = false
             UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
         }
@@ -91,14 +93,19 @@ class MoneyVC: UIViewController {
     
     @IBAction func getMoneyBtnPressed(_ sender: Any) {
         
-        DataService.instance.createTimeStamp(withUid: Auth.auth().currentUser!.uid)
+        // Use completion block to call get after push has been completed
+        DataService.instance.createTimeStamp(withUid: Auth.auth().currentUser!.uid) {
+            
+            self.getMoneyBtn.isHidden = true
+            
+            // button hidden persistence
+            UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
+            
+            self.getTimeStamps()
+        }
     
-        getMoneyBtn.isHidden = true
         
-        // button hidden persistence
-        UserDefaults.standard.set(getMoneyBtn.isHidden, forKey: "hidden")
         
-        getTimeStamps()
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {

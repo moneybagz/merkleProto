@@ -29,8 +29,17 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    func createTimeStamp(withUid uid: String) {
-        REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any])
+    func createTimeStamp(withUid uid: String, completion: @escaping () -> ()) {
+//        REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any])
+        REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any], withCompletionBlock: {error, ref in
+            
+            if error != nil{
+                print("ERROR")
+            }
+            else{
+                completion()
+            }
+        })
     }
     
     func getTimeStamp(withUID uid: String, handler: @escaping (_ timeStamp: NSNumber) -> ()) {
@@ -42,12 +51,20 @@ class DataService {
         }
     }
     
-    func createSecondTimeStamp(withUid uid: String) {
-        REF_USERS.child(uid).updateChildValues(["secondTimeStamp": ServerValue.timestamp()] as [String : Any])
+    func createSecondTimeStamp(withUid uid: String, completion: @escaping () -> ()) {
+        REF_USERS.child(uid).updateChildValues(["timeStampTwo": ServerValue.timestamp()] as [String : Any], withCompletionBlock: {error, ref in
+            
+            if error != nil{
+                print("ERROR")
+            }
+            else{
+                completion()
+            }
+        })
     }
     
     func getSecondTimeStamp(withUID uid: String, handler: @escaping (_ timeStamp: NSNumber) -> ()) {
-        REF_USERS.child(uid).child("secondTimeStamp").observeSingleEvent(of: .value) { (timeSnapshot) in
+        REF_USERS.child(uid).child("timeStampTwo").observeSingleEvent(of: .value) { (timeSnapshot) in
             if let t = timeSnapshot.value as? NSNumber {
                 print("\(t)")
                 handler(t)
