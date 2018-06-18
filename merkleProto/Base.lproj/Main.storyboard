@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1i-jv-B23">
-                                <rect key="frame" x="64" y="96" width="193" height="30"/>
+                                <rect key="frame" x="111" y="98" width="193" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -113,20 +113,35 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzT-G0-UYv">
-                                <rect key="frame" x="64" y="165" width="193" height="30"/>
+                                <rect key="frame" x="111" y="162" width="193" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEV-Nu-PQ8">
-                                <rect key="frame" x="111" y="244" width="99" height="30"/>
+                                <rect key="frame" x="158" y="310" width="99" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SIGN IN"/>
                                 <connections>
                                     <action selector="SignInBtnPressed:" destination="ftB-gO-xRI" eventType="touchUpInside" id="vdd-nd-Avb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejl-iq-u6I">
+                                <rect key="frame" x="119" y="233" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="rememberMeBtnPressed:" destination="ftB-gO-xRI" eventType="touchUpInside" id="uob-Wy-3AC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-X8-lVm">
+                                <rect key="frame" x="175" y="238" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sBW-uD-fuV"/>
@@ -134,12 +149,13 @@
                     <connections>
                         <outlet property="emailField" destination="c1i-jv-B23" id="emY-0V-l24"/>
                         <outlet property="passwordField" destination="vzT-G0-UYv" id="gRI-ZW-0C1"/>
+                        <outlet property="rememberMeBtn" destination="Ejl-iq-u6I" id="tYT-Sl-3mn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qR-ZC-OoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9Qp-jw-TSQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1126" y="8"/>
+            <point key="canvasLocation" x="-1126.0869565217392" y="7.3369565217391308"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="90H-MO-lW4">
