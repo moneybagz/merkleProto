@@ -29,8 +29,11 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    func postMoney(withUid uid: String, money: Int) {
+        REF_USERS.child(uid).updateChildValues(["money": money])
+    }
+    
     func createTimeStamp(withUid uid: String, completion: @escaping () -> ()) {
-//        REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any])
         REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any], withCompletionBlock: {error, ref in
             
             if error != nil{

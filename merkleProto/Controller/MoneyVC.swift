@@ -119,6 +119,29 @@ class MoneyVC: UIViewController {
             
             self.getTimeStamps()
         }
+        
+        randomMoney()
+    }
+    
+    func randomMoney() {
+        var number = Int(arc4random_uniform(5))
+        
+        switch number {
+        case 0:
+            number = 25
+        case 1:
+            number = 25
+        case 2:
+            number = 50
+        case 3:
+            number = 50
+        case 4:
+            number = 100
+        default:
+            number = 77
+        }
+
+        DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: number)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
