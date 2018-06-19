@@ -31,7 +31,6 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
 //            print(logoutError)
 //        }
         
-        print("WTF!!!!!!!!!")
         
         // For Zooming
         scrollView.delegate = self

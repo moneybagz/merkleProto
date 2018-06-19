@@ -71,8 +71,16 @@ class DataService {
         }
     }
     
-    func postMoney(withUid uid: String, money: Int) {
-        REF_USERS.child(uid).updateChildValues(["money": money])
+    func postMoney(withUid uid: String, money: Int, completion: @escaping () -> ()) {
+        REF_USERS.child(uid).updateChildValues(["money": money], withCompletionBlock: {error, ref in
+            
+            if error != nil{
+                print("ERROR")
+            }
+            else{
+                completion()
+            }
+        })
     }
     
     func getMoney(withUid uid: String, handler: @escaping (_ cash: Int) -> ()) {

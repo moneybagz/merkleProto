@@ -13,6 +13,7 @@ class MoneyVC: UIViewController {
     
     @IBOutlet var getMoneyBtn: UIButton!
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var moneyLabel: UILabel!
     
     var timeStampOne: NSNumber?
     var timeStampTwo: NSNumber?
@@ -22,6 +23,8 @@ class MoneyVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        moneyLabel.text = "\(String(describing: Money.instance.money!))"
         
         //so countdownTimer won't be called twice doubling its time
         NotificationCenter.default.addObserver(self, selector: #selector(resetTotalTime), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
@@ -141,7 +144,16 @@ class MoneyVC: UIViewController {
             number = 777
         }
 
-        DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: number)
+        if Money.instance.money != nil {
+            number += Money.instance.money!
+        }
+        
+        DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: number) {
+            DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid, handler: { (cash) in
+                Money.instance.money = cash
+                self.moneyLabel.text = String(Money.instance.money!)
+            })
+        }
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
