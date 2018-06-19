@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Thing {
+struct Thing {
     
     var openToBuy: Bool!
     var bought: Bool!

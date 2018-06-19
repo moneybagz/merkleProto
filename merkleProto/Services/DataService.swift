@@ -29,10 +29,6 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    func postMoney(withUid uid: String, money: Int) {
-        REF_USERS.child(uid).updateChildValues(["money": money])
-    }
-    
     func createTimeStamp(withUid uid: String, completion: @escaping () -> ()) {
         REF_USERS.child(uid).updateChildValues(["timeStamp": ServerValue.timestamp()] as [String : Any], withCompletionBlock: {error, ref in
             
@@ -71,6 +67,19 @@ class DataService {
             if let t = timeSnapshot.value as? NSNumber {
                 print("\(t)")
                 handler(t)
+            } else { return }
+        }
+    }
+    
+    func postMoney(withUid uid: String, money: Int) {
+        REF_USERS.child(uid).updateChildValues(["money": money])
+    }
+    
+    func getMoney(withUid uid: String, handler: @escaping (_ cash: Int) -> ()) {
+        REF_USERS.child(uid).child("money").observeSingleEvent(of: .value) { (moneySnapshot) in
+            if let money = moneySnapshot.value as? Int {
+                print("\(money)")
+                handler(money)
             } else { return }
         }
     }

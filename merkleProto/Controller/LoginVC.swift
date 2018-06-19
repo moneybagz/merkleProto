@@ -50,7 +50,10 @@ class LoginVC: UIViewController {
                         UserDefaults.standard.set(self.passwordField.text, forKey: "password")
                     }
                     
-                    self.dismiss(animated: true, completion: nil)
+                    //self.dismiss(animated: true, completion: nil)
+                    let RoomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+                    self.present(RoomVC, animated: true, completion: nil)
+                    
                 } else {
                     print(String(describing: loginError?.localizedDescription))
                 }
@@ -65,8 +68,11 @@ class LoginVC: UIViewController {
                                 UserDefaults.standard.set(self.passwordField.text, forKey: "password")
                             }
                             
-                            self.dismiss(animated: true, completion: nil)
+                            //self.dismiss(animated: true, completion: nil)
+                            let RoomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+                            self.present(RoomVC, animated: true, completion: nil)
                         })
+                        
                     } else {
                         print(String(describing: registrationError?.localizedDescription))
                     }

@@ -138,7 +138,7 @@ class MoneyVC: UIViewController {
         case 4:
             number = 100
         default:
-            number = 77
+            number = 777
         }
 
         DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: number)

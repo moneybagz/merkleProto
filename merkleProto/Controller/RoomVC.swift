@@ -17,15 +17,21 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //var user = Auth.auth().currentUser!.uid)
-        
+
+        DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
+            Money.instance.money = cash
+            print("\(String(describing: Money.instance.money))*************")
+        }
         
         //FIREBASE SIGNOUT
-        do {
-            try Auth.auth().signOut()
-        } catch let logoutError {
-            print(logoutError)
-        }
+//        do {
+//            try Auth.auth().signOut()
+//            print("you are logged out!!!!!!!!!!!!!")
+//        } catch let logoutError {
+//            print(logoutError)
+//        }
+        
+        print("WTF!!!!!!!!!")
         
         // For Zooming
         scrollView.delegate = self

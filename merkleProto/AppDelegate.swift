@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // initial view controller programatically
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-        window?.makeKeyAndVisible()
-        window?.rootViewController?.present(loginVC, animated: true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+//        window?.makeKeyAndVisible()
+//        window?.rootViewController?.present(loginVC, animated: true, completion: nil)
         
         return true
     }
