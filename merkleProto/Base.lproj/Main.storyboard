@@ -177,6 +177,9 @@
                                 <rect key="frame" x="30" y="208" width="245" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SHOP"/>
+                                <connections>
+                                    <action selector="shopBtnPressed:" destination="aqw-Vh-Qv3" eventType="touchUpInside" id="GVE-Ue-9Sf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-Hd-mBY">
                                 <rect key="frame" x="30" y="112" width="245" height="64"/>
@@ -249,6 +252,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnt-qI-hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2330.434782608696" y="-210.32608695652175"/>
+        </scene>
+        <!--ShopVC-->
+        <scene sceneID="yog-It-Ktm">
+            <objects>
+                <viewController storyboardIdentifier="ShopVC" id="PEY-ey-EGz" customClass="ShopVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mGV-OL-qIw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dlb-Hc-AYg">
+                                <rect key="frame" x="20" y="20" width="374" height="696"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="26i-5s-eae">
+                                    <size key="itemSize" width="170" height="170"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="puS-VO-cIF" customClass="ShopCell" customModule="merkleProto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="bed1" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-7H-KOq">
+                                                    <rect key="frame" x="0.0" y="21" width="170" height="124"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acM-Ak-fYF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="170" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jff-3M-yl9">
+                                                    <rect key="frame" x="0.0" y="145" width="170" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="I7d-7H-KOq" secondAttribute="bottom" constant="25" id="207-Oe-mdO"/>
+                                            <constraint firstAttribute="trailing" secondItem="acM-Ak-fYF" secondAttribute="trailing" id="3CY-3h-rjF"/>
+                                            <constraint firstAttribute="trailing" secondItem="I7d-7H-KOq" secondAttribute="trailing" id="5g8-nh-6Jt"/>
+                                            <constraint firstItem="Jff-3M-yl9" firstAttribute="leading" secondItem="puS-VO-cIF" secondAttribute="leading" id="P4n-wp-8bS"/>
+                                            <constraint firstItem="I7d-7H-KOq" firstAttribute="leading" secondItem="puS-VO-cIF" secondAttribute="leading" id="XR4-X4-ZwS"/>
+                                            <constraint firstItem="acM-Ak-fYF" firstAttribute="top" secondItem="puS-VO-cIF" secondAttribute="top" id="b0S-eL-XKb"/>
+                                            <constraint firstItem="I7d-7H-KOq" firstAttribute="top" secondItem="acM-Ak-fYF" secondAttribute="bottom" id="gPC-Vh-Hjs"/>
+                                            <constraint firstAttribute="bottom" secondItem="Jff-3M-yl9" secondAttribute="bottom" id="gee-yy-Sna"/>
+                                            <constraint firstItem="Jff-3M-yl9" firstAttribute="top" secondItem="I7d-7H-KOq" secondAttribute="bottom" id="mD3-o0-w0x"/>
+                                            <constraint firstItem="acM-Ak-fYF" firstAttribute="leading" secondItem="puS-VO-cIF" secondAttribute="leading" id="oLK-ls-RFW"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jff-3M-yl9" secondAttribute="trailing" id="r7G-dD-iSl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="amountLbl" destination="Jff-3M-yl9" id="kkn-Nx-FSG"/>
+                                            <outlet property="nameLbl" destination="acM-Ak-fYF" id="3SI-xk-t54"/>
+                                            <outlet property="thingImageView" destination="I7d-7H-KOq" id="Voj-z9-0wV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FjY-n1-J0m" firstAttribute="trailing" secondItem="Dlb-Hc-AYg" secondAttribute="trailing" constant="20" id="7VN-ON-ZhM"/>
+                            <constraint firstItem="Dlb-Hc-AYg" firstAttribute="leading" secondItem="FjY-n1-J0m" secondAttribute="leading" constant="20" id="7hQ-1m-FK9"/>
+                            <constraint firstItem="FjY-n1-J0m" firstAttribute="bottom" secondItem="Dlb-Hc-AYg" secondAttribute="bottom" constant="20" id="P0U-LR-H8g"/>
+                            <constraint firstItem="Dlb-Hc-AYg" firstAttribute="top" secondItem="FjY-n1-J0m" secondAttribute="top" id="zUc-G6-E4A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FjY-n1-J0m"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qby-UP-7jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1618.840579710145" y="512.77173913043487"/>
         </scene>
     </scenes>
     <resources>

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct Thing {
     
+    var name: String!
     var openToBuy: Bool!
     var bought: Bool!
-    var imageUrl: String!
+    var image: UIImage!
     var cost: Int!
 }

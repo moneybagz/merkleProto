@@ -71,6 +71,7 @@ class MoneyVC: UIViewController {
                     
                     UserDefaults.standard.set(self.getMoneyBtn.isHidden, forKey: "hidden")
                 } else {
+                    // get the difference in time to give to Timer
                     self.totalTime = Int(90 - seconds)
                     self.startTimer()
                 }

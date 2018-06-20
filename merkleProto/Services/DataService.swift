@@ -86,7 +86,6 @@ class DataService {
     func getMoney(withUid uid: String, handler: @escaping (_ cash: Int) -> ()) {
         REF_USERS.child(uid).child("money").observeSingleEvent(of: .value) { (moneySnapshot) in
             if let money = moneySnapshot.value as? Int {
-                print("\(money)")
                 handler(money)
             } else { return }
         }

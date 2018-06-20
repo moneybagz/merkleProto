@@ -9,6 +9,7 @@
 import UIKit
 
 class LoginVC: UIViewController {
+
     
     
     @IBOutlet var emailField: UITextField!    
@@ -29,6 +30,7 @@ class LoginVC: UIViewController {
         }
     }
     
+    //Saving username and password
     @IBAction func rememberMeBtnPressed(_ sender: Any) {
         if rememberMe == false {
             rememberMe = true

@@ -17,11 +17,24 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
-            Money.instance.money = cash
-            print("\(String(describing: Money.instance.money))*************")
+        // Pull Money but if on first run post $0 first
+        if UserDefaults.standard.bool(forKey: "notFirstRun") == false {
+            UserDefaults.standard.set(true, forKey: "notFirstRun")
+            DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: 0) {
+                DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
+                    Money.instance.money = cash
+                    print("\(String(describing: Money.instance.money))*************")
+                }
+            }
+        } else {
+            DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
+                Money.instance.money = cash
+                print("\(String(describing: Money.instance.money))*************")
+            }
         }
+        
+
+        
         
         //FIREBASE SIGNOUT
 //        do {

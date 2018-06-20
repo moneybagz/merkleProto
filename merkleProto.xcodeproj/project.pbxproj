@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		531AB76120D9B82C009B9CA8 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531AB76020D9B82C009B9CA8 /* Money.swift */; };
+		531AB76320DA3FF7009B9CA8 /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531AB76220DA3FF7009B9CA8 /* ShopVC.swift */; };
 		5343E6A520D1DEA800C7A68A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343E6A420D1DEA800C7A68A /* LoginVC.swift */; };
 		5343E6A720D2163B00C7A68A /* MoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343E6A620D2163B00C7A68A /* MoneyVC.swift */; };
+		536C854620DAEBB4001E356D /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C854520DAEBB4001E356D /* ShopCell.swift */; };
 		53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E020C9A382001B7DAF /* AppDelegate.swift */; };
 		53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E220C9A382001B7DAF /* RoomVC.swift */; };
 		53C659E620C9A382001B7DAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C659E420C9A382001B7DAF /* Main.storyboard */; };
@@ -25,8 +27,10 @@
 
 /* Begin PBXFileReference section */
 		531AB76020D9B82C009B9CA8 /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		531AB76220DA3FF7009B9CA8 /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
 		5343E6A420D1DEA800C7A68A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5343E6A620D2163B00C7A68A /* MoneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyVC.swift; sourceTree = "<group>"; };
+		536C854520DAEBB4001E356D /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		53C659DD20C9A382001B7DAF /* merkleProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = merkleProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C659E020C9A382001B7DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C659E220C9A382001B7DAF /* RoomVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomVC.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		536C854420DAEB57001E356D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				536C854520DAEBB4001E356D /* ShopCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		53C659D420C9A382001B7DAF = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 				53C659FA20CF2E28001B7DAF /* Services */,
 				53C659E020C9A382001B7DAF /* AppDelegate.swift */,
 				53C659F420CCD45B001B7DAF /* Model */,
+				536C854420DAEB57001E356D /* View */,
 				53C659F720CD05C5001B7DAF /* Controller */,
 				53C659E420C9A382001B7DAF /* Main.storyboard */,
 				53C659E720C9A384001B7DAF /* Assets.xcassets */,
@@ -114,6 +127,7 @@
 				53C659E220C9A382001B7DAF /* RoomVC.swift */,
 				53C659F220CC9BD2001B7DAF /* MenuVC.swift */,
 				5343E6A620D2163B00C7A68A /* MoneyVC.swift */,
+				531AB76220DA3FF7009B9CA8 /* ShopVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -255,12 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531AB76320DA3FF7009B9CA8 /* ShopVC.swift in Sources */,
 				53C659F620CCD481001B7DAF /* Thing.swift in Sources */,
 				5343E6A720D2163B00C7A68A /* MoneyVC.swift in Sources */,
 				53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */,
 				531AB76120D9B82C009B9CA8 /* Money.swift in Sources */,
 				5343E6A520D1DEA800C7A68A /* LoginVC.swift in Sources */,
 				53C659F320CC9BD2001B7DAF /* MenuVC.swift in Sources */,
+				536C854620DAEBB4001E356D /* ShopCell.swift in Sources */,
 				53C659FE20CF4FE6001B7DAF /* AuthService.swift in Sources */,
 				53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */,
 				53C659FC20CF2E68001B7DAF /* DataService.swift in Sources */,
