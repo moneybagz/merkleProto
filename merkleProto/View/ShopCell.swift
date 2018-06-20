@@ -14,6 +14,12 @@ class ShopCell: UICollectionViewCell {
     @IBOutlet var amountLbl: UILabel!
     @IBOutlet var thingImageView: UIImageView!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        layer.cornerRadius = 5.0
+    }
+    
     func configureCell(thing: Thing) {
         
         nameLbl.text = thing.name
