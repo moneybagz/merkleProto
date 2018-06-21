@@ -19,8 +19,8 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
         // Pull Money but if on first run post $0 first
         if UserDefaults.standard.bool(forKey: "notFirstRun") == false {
-            UserDefaults.standard.set(true, forKey: "notFirstRun")
             DataService.instance.postMoney(withUid: Auth.auth().currentUser!.uid, money: 0) {
+                UserDefaults.standard.set(true, forKey: "notFirstRun")
                 DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                     Money.instance.money = cash
                     print("\(String(describing: Money.instance.money))*************")
@@ -34,6 +34,12 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         }
         
 
+        
+        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+            for thing in things {
+                print("\(thing.name), access-\(thing.access), bought-\(thing.bought) $\(thing.cost)")
+            }
+        }
         
         
         //FIREBASE SIGNOUT

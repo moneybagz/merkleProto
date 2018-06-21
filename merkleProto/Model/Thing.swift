@@ -12,7 +12,7 @@ import UIKit
 struct Thing {
     
     private var _name: String!
-    private var _openToBuy: Bool!
+    private var _access: Bool!
     private var _bought: Bool!
     //private var _image: UIImage!
     private var _cost: Int!
@@ -22,8 +22,8 @@ struct Thing {
         return _name
     }
     
-    var openToBuy: Bool {
-        return _openToBuy
+    var access: Bool {
+        return _access
     }
     
     var bought: Bool {
@@ -34,10 +34,10 @@ struct Thing {
         return _cost
     }
     
-    init(name: String, openTobuy: Bool, bought: Bool, cost: Int) {
+    init(name: String, access: Bool, bought: Bool, cost: Int) {
         
         self._name = name
-        self._openToBuy = openTobuy
+        self._access = access
         self._bought = bought
         self._cost = cost
     }

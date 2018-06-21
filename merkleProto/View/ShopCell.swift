@@ -24,6 +24,6 @@ class ShopCell: UICollectionViewCell {
         
         nameLbl.text = thing.name
         amountLbl.text = "$\(thing.cost)"
-        thingImageView.image = thing.image
+        //thingImageView.image = thing.image
     }
 }

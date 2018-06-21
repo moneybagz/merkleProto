@@ -90,4 +90,22 @@ class DataService {
             } else { return }
         }
     }
+    
+    func getRoomData(withUid uid: String, roomNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
+        var thingsArray = [Thing]()
+        REF_USERS.child(uid).child("room1").observeSingleEvent(of: .value) { (roomSnapshot) in
+            guard let roomSnapshot = roomSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for item in roomSnapshot {
+                let name = item.childSnapshot(forPath: "name").value as! String
+                let access = item.childSnapshot(forPath: "access").value as! Bool
+                let bought = item.childSnapshot(forPath: "bought").value as! Bool
+                let cost = item.childSnapshot(forPath: "cost").value as! Int
+                let thing = Thing(name: name, access: access, bought: bought, cost: cost)
+                thingsArray.append(thing)
+            }
+            
+            handler(thingsArray)
+        }
+    }
 }
