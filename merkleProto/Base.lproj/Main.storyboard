@@ -69,7 +69,7 @@
                                 </constraints>
                                 <state key="normal" title="MENU"/>
                                 <connections>
-                                    <segue destination="aqw-Vh-Qv3" kind="show" id="PFb-Gb-EXn"/>
+                                    <action selector="menuBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="reT-MC-rOt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,7 +160,7 @@
         <!--MenuVC-->
         <scene sceneID="90H-MO-lW4">
             <objects>
-                <viewController id="aqw-Vh-Qv3" customClass="MenuVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuVC" id="aqw-Vh-Qv3" customClass="MenuVC" customModule="merkleProto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6dX-cn-yON">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,6 +170,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="BACK"/>
                                 <connections>
+                                    <action selector="backBtnPressed:" destination="aqw-Vh-Qv3" eventType="touchUpInside" id="7XV-lL-PT3"/>
                                     <segue destination="MA0-vF-e9r" kind="unwind" unwindAction="unwind:" id="Udg-Zt-uc5"/>
                                 </connections>
                             </button>

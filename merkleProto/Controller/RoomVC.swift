@@ -14,6 +14,8 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var roomView: UIView!
     
+    var thingsArray = [Thing]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,6 +70,11 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         return roomView
     }
 
-    @IBAction func unwind(_ sender: UIStoryboardSegue){}
+    @IBAction func menuBtnPressed(_ sender: Any) {
+        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+        present(menuVC, animated: true, completion: nil)
+    }
+    
+//    @IBAction func unwind(_ sender: UIStoryboardSegue){}
 }
 

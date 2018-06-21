@@ -21,6 +21,11 @@ class MenuVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backBtnPressed(_ sender: Any) {
+        let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+        present(roomVC, animated: true, completion: nil)
+    }
+    
     @IBAction func moneyBtnPressed(_ sender: Any) {
         let moneyVC = self.storyboard?.instantiateViewController(withIdentifier: "MoneyVC") as! MoneyVC
         present(moneyVC, animated: true, completion: nil)
