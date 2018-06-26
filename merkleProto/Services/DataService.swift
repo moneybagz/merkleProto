@@ -9,13 +9,16 @@
 import Foundation
 import Firebase
 
+
 let DB_Base = Database.database().reference()
+let DB_Storage = Storage().reference()
 
 class DataService {
     static let instance = DataService()
     
     private var _REF_BASE = DB_Base
     private var _REF_USERS = DB_Base.child("users")
+    private var _REF_STORAGE = DB_Storage.child("gs://merklez-4cebe.appspot.com")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -23,6 +26,10 @@ class DataService {
     
     var REF_USERS: DatabaseReference {
         return _REF_USERS
+    }
+    
+    var REF_STORAGE: StorageReference {
+        return _REF_STORAGE
     }
     
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {

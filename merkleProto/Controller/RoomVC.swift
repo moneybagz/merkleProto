@@ -25,13 +25,13 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
                 UserDefaults.standard.set(true, forKey: "notFirstRun")
                 DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                     Money.instance.money = cash
-                    print("\(String(describing: Money.instance.money))*************")
+                    //print("\(String(describing: Money.instance.money))*************")
                 }
             }
         } else {
             DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                 Money.instance.money = cash
-                print("\(String(describing: Money.instance.money))*************")
+                //print("\(String(describing: Money.instance.money))*************")
             }
         }
         

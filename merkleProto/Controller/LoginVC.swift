@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
@@ -57,32 +58,62 @@ class LoginVC: UIViewController {
                     self.present(RoomVC, animated: true, completion: nil)
                     
                 } else {
-                    print(String(describing: loginError?.localizedDescription))
-                }
-                
-                AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
-                    if success {
-                        AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, loginComplete: { (success, registrationError) in
-                            
-                            // Saving email and password
-                            if self.rememberMe == true {
-                                UserDefaults.standard.set(self.emailField.text, forKey: "email")
-                                UserDefaults.standard.set(self.passwordField.text, forKey: "password")
-                            }
-                            
-                            //self.dismiss(animated: true, completion: nil)
-                            let RoomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
-                            self.present(RoomVC, animated: true, completion: nil)
-                        })
-                        
-                    } else {
-                        print(String(describing: registrationError?.localizedDescription))
+                    if let error = loginError {
+                        self.authenticationFailAlert(error: error)
                     }
-                })
+                }
             }
         }
     }
     
+    func authenticationFailAlert(error: Error) {
+        
+        if error._code == AuthErrorCode.userNotFound.rawValue {
+            let alert = UIAlertController(title: "Creating New User", message: (String(describing: error.localizedDescription)), preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "Ok", style: .default) { action in
+                self.registerUser()
+            }
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+        let alert = UIAlertController(title: "error", message: (String(describing: error.localizedDescription)), preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func registerUser() {
+        AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, registrationError) in
+            if success {
+                AuthService.instance.loginUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, loginComplete: { (success, registrationError) in
+                    
+                    // Saving email and password
+                    if self.rememberMe == true {
+                        UserDefaults.standard.set(self.emailField.text, forKey: "email")
+                        UserDefaults.standard.set(self.passwordField.text, forKey: "password")
+                    }
+                    
+                    //self.dismiss(animated: true, completion: nil)
+                    let RoomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+                    self.present(RoomVC, animated: true, completion: nil)
+                })
+                
+            } else {
+                if let error = registrationError {
+                    print(String(describing: error.localizedDescription))
+                    self.authenticationFailAlert(error: error)
+                }
+            }
+        })
+    }
     
     /*
     // MARK: - Navigation
