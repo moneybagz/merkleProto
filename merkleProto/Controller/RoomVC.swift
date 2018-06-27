@@ -39,7 +39,7 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
         DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
             for thing in things {
-                print("\(thing.name), access-\(thing.access), bought-\(thing.bought) $\(thing.cost)")
+                print("\(thing.name), access-\(thing.access), bought-\(thing.bought) $\(thing.cost) \(thing.imageUrl)")
             }
         }
         

@@ -14,8 +14,8 @@ struct Thing {
     private var _name: String!
     private var _access: Bool!
     private var _bought: Bool!
-    //private var _image: UIImage!
     private var _cost: Int!
+    private var _imageUrl: String!
     //private var _unlockable: [String]
     
     var name: String {
@@ -34,11 +34,17 @@ struct Thing {
         return _cost
     }
     
-    init(name: String, access: Bool, bought: Bool, cost: Int) {
+    var imageUrl: String {
+        return _imageUrl
+    }
+    
+    init(name: String, access: Bool, bought: Bool, cost: Int, imageUrl: String) {
         
         self._name = name
         self._access = access
         self._bought = bought
         self._cost = cost
+        self._imageUrl = imageUrl
+
     }
 }

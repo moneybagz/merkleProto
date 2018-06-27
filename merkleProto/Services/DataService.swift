@@ -100,7 +100,7 @@ class DataService {
     
     func getRoomData(withUid uid: String, roomNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
         var thingsArray = [Thing]()
-        REF_USERS.child(uid).child("room1").observeSingleEvent(of: .value) { (roomSnapshot) in
+        REF_USERS.child(uid).child("rooms").child(roomNumber).observeSingleEvent(of: .value) { (roomSnapshot) in
             guard let roomSnapshot = roomSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for item in roomSnapshot {
@@ -108,7 +108,8 @@ class DataService {
                 let access = item.childSnapshot(forPath: "access").value as! Bool
                 let bought = item.childSnapshot(forPath: "bought").value as! Bool
                 let cost = item.childSnapshot(forPath: "cost").value as! Int
-                let thing = Thing(name: name, access: access, bought: bought, cost: cost)
+                let imageUrl = item.childSnapshot(forPath: "imageUrl").value as! String
+                let thing = Thing(name: name, access: access, bought: bought, cost: cost, imageUrl: imageUrl)
                 thingsArray.append(thing)
             }
             
