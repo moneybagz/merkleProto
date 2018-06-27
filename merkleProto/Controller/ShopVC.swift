@@ -14,6 +14,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     @IBOutlet weak var collection: UICollectionView!
     
     var thingsArray = [Thing]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,6 +14,9 @@ class ShopCell: UICollectionViewCell {
     @IBOutlet var amountLbl: UILabel!
     @IBOutlet var thingImageView: UIImageView!
     
+    
+
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -24,21 +27,8 @@ class ShopCell: UICollectionViewCell {
         
         nameLbl.text = thing.name
         amountLbl.text = "$\(thing.cost)"
+        //function in extensions file
+        thingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
         
-        //let url = URL(fileURLWithPath: thing.imageUrl)
-        if let url = URL(string: thing.imageUrl) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                
-                //download hit an error so lets return out
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.thingImageView.image = UIImage(data: data!)
-                }
-            }.resume()
-        }
     }
 }
