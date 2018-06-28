@@ -46,8 +46,17 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let thing = thingsArray[indexPath.row]
         
-    }
+        let buyModalVC = self.storyboard?.instantiateViewController(withIdentifier: "BuyModalVC") as! BuyModalVC
+        buyModalVC.initData(forThing: thing)
+        buyModalVC.providesPresentationContextTransitionStyle = true
+        buyModalVC.definesPresentationContext = true
+        buyModalVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext;
+        buyModalVC.view.backgroundColor = UIColor.init(white: 0.2, alpha: 0.5)
+        buyModalVC.modalTransitionStyle = .crossDissolve
+        
+        self.present(buyModalVC, animated: true, completion: nil)    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

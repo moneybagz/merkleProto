@@ -53,10 +53,13 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
 //        }
         
         
+        // ScrollView
+        //scrollView.contentSize = roomView.bounds.size
+        
         // For Zooming
         scrollView.delegate = self
-        scrollView.minimumZoomScale = 0.5
-        scrollView.maximumZoomScale = 2.0
+        scrollView.minimumZoomScale = 0.8
+        scrollView.maximumZoomScale = 1.6
         scrollView.zoomScale = 1.0
     }
 

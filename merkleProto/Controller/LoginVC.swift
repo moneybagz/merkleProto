@@ -102,8 +102,8 @@ class LoginVC: UIViewController {
                     }
                     
                     //self.dismiss(animated: true, completion: nil)
-                    let RoomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
-                    self.present(RoomVC, animated: true, completion: nil)
+                    let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+                    self.present(roomVC, animated: true, completion: nil)
                 })
                 
             } else {
