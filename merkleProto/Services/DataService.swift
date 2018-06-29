@@ -99,7 +99,8 @@ class DataService {
     }
     
     func getRoomData(withUid uid: String, roomNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
-        var thingsArray = [Thing]()
+        
+            var thingsArray = [Thing]()
         REF_USERS.child(uid).child("rooms").child(roomNumber).observeSingleEvent(of: .value) { (roomSnapshot) in
             guard let roomSnapshot = roomSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
@@ -115,5 +116,20 @@ class DataService {
             
             handler(thingsArray)
         }
+    }
+    
+    func buyThings(withUid uid: String, roomNumber: String, thingName:String, money: Int, completion: @escaping () -> ()) {
+        
+            REF_USERS.child(uid).updateChildValues(["money": money])
+        REF_USERS.child(uid).child("rooms").child(roomNumber).child(thingName).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
+            
+            if error != nil{
+                print("ERROR")
+            }
+            else{
+                
+                completion()
+            }
+        })
     }
 }

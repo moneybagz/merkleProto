@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BuyModalVC: UIViewController {
     
@@ -35,8 +36,16 @@ class BuyModalVC: UIViewController {
     
     
     @IBAction func buyBtn(_ sender: Any) {
-        
+        if let thing = thing {
+            if thing.cost <= Money.instance.money! {
+                DataService.instance.buyThings(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1", thingName: thing.name, money: Money.instance.money! - thing.cost) {
+                    Money.instance.money! -= thing.cost
+                    self.dismiss(animated: false, completion: nil)
+                }                
+            }
+        }
     }
+    
     @IBAction func cancelBtn(_ sender: Any) {
         dismiss(animated: false, completion: nil)
     }
