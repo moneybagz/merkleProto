@@ -18,10 +18,26 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // reload data after modal view is dismissed
+        NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromObserver), name: NSNotification.Name(rawValue: "load"), object: nil)
 
         collection.dataSource = self
         collection.delegate = self
         
+        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+            for thing in things {
+                if thing.access == true {
+                    self.thingsArray.append(thing)
+                }
+            }
+            self.collection.reloadData()
+        }
+    }
+    
+    @objc func loadDataFromObserver(){
+        //load data here
+        thingsArray.removeAll()
         DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
             for thing in things {
                 if thing.access == true {

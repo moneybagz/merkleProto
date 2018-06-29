@@ -40,6 +40,10 @@ class BuyModalVC: UIViewController {
             if thing.cost <= Money.instance.money! {
                 DataService.instance.buyThings(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1", thingName: thing.name, money: Money.instance.money! - thing.cost) {
                     Money.instance.money! -= thing.cost
+                    
+                    //update collection view ui
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
                     self.dismiss(animated: false, completion: nil)
                 }                
             }
