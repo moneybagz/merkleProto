@@ -14,6 +14,14 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var roomView: UIView!
     
+    
+    @IBOutlet var carpetImageView: UIImageView!
+    @IBOutlet var shelfImageView: UIImageView!
+    @IBOutlet var paintingImageView: UIImageView!
+    @IBOutlet var bedImageView: UIImageView!
+    
+    
+    
     var thingsArray = [Thing]()
     
     override func viewDidLoad() {
@@ -25,21 +33,31 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
                 UserDefaults.standard.set(true, forKey: "notFirstRun")
                 DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                     Money.instance.money = cash
-                    //print("\(String(describing: Money.instance.money))*************")
                 }
             }
         } else {
             DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                 Money.instance.money = cash
-                //print("\(String(describing: Money.instance.money))*************")
             }
         }
         
 
         
         DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+            
+            // HARD CODeD THE ROOM DATA, BAD!
             for thing in things {
-                print("\(thing.name), access-\(thing.access), bought-\(thing.bought) $\(thing.cost) \(thing.imageUrl)")
+                if thing.bought == true {
+                    if thing.name == "bed" {
+                        self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "painting" {
+                        self.paintingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "shelf" {
+                        self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "carpet" {
+                        self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    }
+                }
             }
         }
         

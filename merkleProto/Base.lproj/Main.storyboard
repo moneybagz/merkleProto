@@ -24,19 +24,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-HG-ImD">
                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carpet4" translatesAutoresizingMaskIntoConstraints="NO" id="FAO-jE-kDc">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAO-jE-kDc">
                                                 <rect key="frame" x="71" y="361" width="929" height="495"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shelfy" translatesAutoresizingMaskIntoConstraints="NO" id="w0c-XD-VF5">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w0c-XD-VF5">
                                                 <rect key="frame" x="-124" y="-20" width="765" height="548"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="artWcanvas" translatesAutoresizingMaskIntoConstraints="NO" id="s9a-LE-Pbg">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s9a-LE-Pbg">
                                                 <rect key="frame" x="208" y="28" width="963" height="513"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bed1" translatesAutoresizingMaskIntoConstraints="NO" id="VIq-8P-cf4">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIq-8P-cf4">
                                                 <rect key="frame" x="137" y="217" width="828" height="441"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -86,8 +86,12 @@
                     </view>
                     <size key="freeformSize" width="1000" height="1000"/>
                     <connections>
+                        <outlet property="bedImageView" destination="VIq-8P-cf4" id="dSz-Zj-7nD"/>
+                        <outlet property="carpetImageView" destination="FAO-jE-kDc" id="BGW-GV-hoG"/>
+                        <outlet property="paintingImageView" destination="s9a-LE-Pbg" id="Lja-Yh-ltp"/>
                         <outlet property="roomView" destination="j9s-HG-ImD" id="T3u-RP-xJm"/>
                         <outlet property="scrollView" destination="IiB-Zf-pyN" id="o9a-KM-EDB"/>
+                        <outlet property="shelfImageView" destination="w0c-XD-VF5" id="xZF-Aj-y4Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -398,10 +402,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="artWcanvas" width="1024" height="1083"/>
-        <image name="bed1" width="2924" height="2905"/>
-        <image name="carpet4" width="1574" height="1156"/>
         <image name="merky!" width="2942" height="3018"/>
-        <image name="shelfy" width="3024" height="2835"/>
     </resources>
 </document>
