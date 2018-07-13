@@ -110,7 +110,24 @@ class DataService {
                 let bought = item.childSnapshot(forPath: "bought").value as! Bool
                 let cost = item.childSnapshot(forPath: "cost").value as! Int
                 let imageUrl = item.childSnapshot(forPath: "imageUrl").value as! String
-                let thing = Thing(name: name, access: access, bought: bought, cost: cost, imageUrl: imageUrl)
+                
+                // ACCESS UNLOCKABLE Array of dictionaries
+                var unlockableArray = [String]()
+                
+                if item.hasChild("unlockable") {
+                    
+                    print(name)
+                    //NSArray works but Array doesn't. WHY?
+                    unlockableArray = (item.childSnapshot(forPath: "unlockable").value as! NSArray) as! [String]
+                    
+                    
+                    for unlockable in unlockableArray {
+                        print(unlockable)
+                    }
+                }
+                
+                
+                let thing = Thing(name: name, access: access, bought: bought, cost: cost, imageUrl: imageUrl, unlockable: unlockableArray)
                 thingsArray.append(thing)
             }
             

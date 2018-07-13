@@ -16,7 +16,8 @@ struct Thing {
     private var _bought: Bool!
     private var _cost: Int!
     private var _imageUrl: String!
-    //private var _unlockable: [String]
+    // Can i have a private optional???
+    private var _unlockable: [String]!
     
     var name: String {
         return _name
@@ -38,13 +39,19 @@ struct Thing {
         return _imageUrl
     }
     
-    init(name: String, access: Bool, bought: Bool, cost: Int, imageUrl: String) {
+    var unlockable: Array<String> {
+        return _unlockable
+    }
+    
+    
+    
+    init(name: String, access: Bool, bought: Bool, cost: Int, imageUrl: String, unlockable: [String]) {
         
         self._name = name
         self._access = access
         self._bought = bought
         self._cost = cost
         self._imageUrl = imageUrl
-
+        self._unlockable = unlockable
     }
 }

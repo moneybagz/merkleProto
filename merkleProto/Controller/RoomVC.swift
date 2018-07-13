@@ -47,6 +47,8 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
             
             // HARD CODeD THE ROOM DATA, BAD!
             for thing in things {
+                print(thing.name, "!!")
+                print(thing.unlockable, "**")
                 if thing.bought == true {
                     if thing.name == "bed" {
                         self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
