@@ -44,6 +44,10 @@
                                                 <rect key="frame" x="104" y="269" width="441" height="315"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-LA-4uU">
+                                                <rect key="frame" x="597" y="438" width="287" height="293"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -92,11 +96,12 @@
                         <outlet property="roomView" destination="j9s-HG-ImD" id="T3u-RP-xJm"/>
                         <outlet property="scrollView" destination="IiB-Zf-pyN" id="o9a-KM-EDB"/>
                         <outlet property="shelfImageView" destination="w0c-XD-VF5" id="xZF-Aj-y4Z"/>
+                        <outlet property="tableImageView" destination="gKL-LA-4uU" id="XlX-2c-7o3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.375" y="116.25"/>
+            <point key="canvasLocation" x="113.04347826086958" y="115.7608695652174"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="SeA-r1-eRH">

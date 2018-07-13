@@ -19,6 +19,7 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet var shelfImageView: UIImageView!
     @IBOutlet var paintingImageView: UIImageView!
     @IBOutlet var bedImageView: UIImageView!
+    @IBOutlet var tableImageView: UIImageView!
     
     
     
@@ -48,7 +49,7 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
             // HARD CODeD THE ROOM DATA, BAD!
             for thing in things {
                 print(thing.name, "!!")
-                print(thing.unlockable, "**")
+                print(thing.unlockable)
                 if thing.bought == true {
                     if thing.name == "bed" {
                         self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
@@ -58,6 +59,8 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
                         self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
                     } else if thing.name == "carpet" {
                         self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "table" {
+                        self.tableImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
                     }
                 }
             }

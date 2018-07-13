@@ -38,7 +38,8 @@ class BuyModalVC: UIViewController {
     @IBAction func buyBtn(_ sender: Any) {
         if let thing = thing {
             if thing.cost <= Money.instance.money! {
-                DataService.instance.buyThings(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1", thingName: thing.name, money: Money.instance.money! - thing.cost) {
+                DataService.instance.buyThings(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1", thing: thing, money: Money.instance.money! - thing.cost) {
+                    
                     Money.instance.money! -= thing.cost
                     
                     //update collection view ui

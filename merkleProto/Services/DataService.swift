@@ -135,15 +135,22 @@ class DataService {
         }
     }
     
-    func buyThings(withUid uid: String, roomNumber: String, thingName:String, money: Int, completion: @escaping () -> ()) {
+    func buyThings(withUid uid: String, roomNumber: String, thing:Thing, money: Int, completion: @escaping () -> ()) {
         
             REF_USERS.child(uid).updateChildValues(["money": money])
-        REF_USERS.child(uid).child("rooms").child(roomNumber).child(thingName).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
+        REF_USERS.child(uid).child("rooms").child(roomNumber).child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
             
             if error != nil{
                 print("ERROR")
             }
             else{
+                
+                // Access unlockables if they exist
+                if thing.unlockable.count > 0 {
+                    for item in thing.unlockable {
+                        self.REF_USERS.child(uid).child("rooms").child(roomNumber).child(item).updateChildValues(["access": true])
+                    }
+                }
                 
                 completion()
             }
