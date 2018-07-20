@@ -19,6 +19,7 @@ class DataService {
     private var _REF_BASE = DB_Base
     private var _REF_USERS = DB_Base.child("users")
     private var _REF_STORAGE = DB_Storage.child("gs://merklez-4cebe.appspot.com")
+    private var _REF_HOMES = DB_Base.child("homes")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -30,6 +31,10 @@ class DataService {
     
     var REF_STORAGE: StorageReference {
         return _REF_STORAGE
+    }
+    
+    var REF_HOMES: DatabaseReference {
+        return _REF_HOMES
     }
     
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
@@ -138,6 +143,7 @@ class DataService {
     func buyThings(withUid uid: String, roomNumber: String, thing:Thing, money: Int, completion: @escaping () -> ()) {
         
             REF_USERS.child(uid).updateChildValues(["money": money])
+        
         REF_USERS.child(uid).child("rooms").child(roomNumber).child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
             
             if error != nil{
@@ -155,5 +161,15 @@ class DataService {
                 completion()
             }
         })
+    }
+    
+    func copyRoomData (withUid uid: String, homeNumber: String) {
+        REF_HOMES.child(homeNumber).observeSingleEvent(of: .value) { (homeSnapshot) in
+//            guard let homeSnap = homeSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            //self.REF_USERS.child(uid).setValue(homeSnapshot.value)
+            self.REF_USERS.child(uid).child("homes").child(homeNumber).setValue(homeSnapshot.value)
+
+        }
     }
 }

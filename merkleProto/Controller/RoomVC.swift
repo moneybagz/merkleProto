@@ -42,29 +42,34 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
             }
         }
         
+        
+
+        //Testing copying room data
+        DataService.instance.copyRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home2")
+
 
         
-        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
-            
-            // HARD CODeD THE ROOM DATA, BAD!
-            for thing in things {
-                print(thing.name, "!!")
-                print(thing.unlockable)
-                if thing.bought == true {
-                    if thing.name == "bed" {
-                        self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-                    } else if thing.name == "painting" {
-                        self.paintingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-                    } else if thing.name == "shelf" {
-                        self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-                    } else if thing.name == "carpet" {
-                        self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-                    } else if thing.name == "table" {
-                        self.tableImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-                    }
-                }
-            }
-        }
+//        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+//
+//            // HARD CODeD THE ROOM DATA, BAD!
+//            for thing in things {
+//                print(thing.name, "!!")
+//                print(thing.unlockable)
+//                if thing.bought == true {
+//                    if thing.name == "bed" {
+//                        self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+//                    } else if thing.name == "painting" {
+//                        self.paintingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+//                    } else if thing.name == "shelf" {
+//                        self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+//                    } else if thing.name == "carpet" {
+//                        self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+//                    } else if thing.name == "table" {
+//                        self.tableImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+//                    }
+//                }
+//            }
+//        }
         
         
         //FIREBASE SIGNOUT

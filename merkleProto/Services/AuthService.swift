@@ -19,7 +19,12 @@ class AuthService {
                 return
             }
             
-            let userData = ["provider": user.user.providerID, "email": user.user.email]
+//            let userData = ["provider": user.user.providerID, "email": user.user.email]
+//            let homeNodesDict = ["homes": ["home1": ["meaninglessData":"meaninglessData2"]]]
+            
+            //MEANINGLESS DATA TO SETUP HOME NODES
+            let userData = ["provider": user.user.providerID, "email": user.user.email, "homes": ["home1": ["meaninglessData":"meaninglessData2"]]] as [String : Any]
+            
             DataService.instance.createDBUser(uid: user.user.uid, userData: userData)
             userCreationComplete(true, nil)
         }
