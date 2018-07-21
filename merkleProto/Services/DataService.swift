@@ -165,9 +165,7 @@ class DataService {
     
     func copyRoomData (withUid uid: String, homeNumber: String) {
         REF_HOMES.child(homeNumber).observeSingleEvent(of: .value) { (homeSnapshot) in
-//            guard let homeSnap = homeSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
-            //self.REF_USERS.child(uid).setValue(homeSnapshot.value)
             self.REF_USERS.child(uid).child("homes").child(homeNumber).setValue(homeSnapshot.value)
 
         }

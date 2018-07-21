@@ -69,7 +69,7 @@ class LoginVC: UIViewController {
     func authenticationFailAlert(error: Error) {
         
         if error._code == AuthErrorCode.userNotFound.rawValue {
-            let alert = UIAlertController(title: "Creating New User", message: (String(describing: error.localizedDescription)), preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Creating New User", message: "", preferredStyle: UIAlertControllerStyle.alert)
             
             let okAction = UIAlertAction(title: "Ok", style: .default) { action in
                 self.registerUser()
