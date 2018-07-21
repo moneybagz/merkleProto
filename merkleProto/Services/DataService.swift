@@ -103,10 +103,10 @@ class DataService {
         }
     }
     
-    func getRoomData(withUid uid: String, roomNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
+    func getRoomData(withUid uid: String, homeNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
         
             var thingsArray = [Thing]()
-        REF_USERS.child(uid).child("rooms").child(roomNumber).observeSingleEvent(of: .value) { (roomSnapshot) in
+        REF_USERS.child(uid).child("homes").child(homeNumber).observeSingleEvent(of: .value) { (roomSnapshot) in
             guard let roomSnapshot = roomSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for item in roomSnapshot {
@@ -140,11 +140,11 @@ class DataService {
         }
     }
     
-    func buyThings(withUid uid: String, roomNumber: String, thing:Thing, money: Int, completion: @escaping () -> ()) {
+    func buyThings(withUid uid: String, homeNumber: String, thing:Thing, money: Int, completion: @escaping () -> ()) {
         
-            REF_USERS.child(uid).updateChildValues(["money": money])
+        REF_USERS.child(uid).updateChildValues(["money": money])
         
-        REF_USERS.child(uid).child("rooms").child(roomNumber).child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
+        REF_USERS.child(uid).child("homes").child(homeNumber).child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
             
             if error != nil{
                 print("ERROR")
@@ -154,7 +154,7 @@ class DataService {
                 // Access unlockables if they exist
                 if thing.unlockable.count > 0 {
                     for item in thing.unlockable {
-                        self.REF_USERS.child(uid).child("rooms").child(roomNumber).child(item).updateChildValues(["access": true])
+                        self.REF_USERS.child(uid).child("homes").child(homeNumber).child(item).updateChildValues(["access": true])
                     }
                 }
                 
@@ -163,11 +163,18 @@ class DataService {
         })
     }
     
-    func copyRoomData (withUid uid: String, homeNumber: String) {
+    func copyRoomData (withUid uid: String, homeNumber: String, completion: @escaping () -> ()) {
         REF_HOMES.child(homeNumber).observeSingleEvent(of: .value) { (homeSnapshot) in
             
-            self.REF_USERS.child(uid).child("homes").child(homeNumber).setValue(homeSnapshot.value)
-
+            self.REF_USERS.child(uid).child("homes").child(homeNumber).setValue(homeSnapshot.value, withCompletionBlock: {error, ref in
+                
+                if error != nil{
+                    print("ERROR")
+                }
+                else{
+                    completion()
+                }
+            })
         }
     }
 }

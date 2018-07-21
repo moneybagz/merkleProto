@@ -25,7 +25,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         collection.dataSource = self
         collection.delegate = self
         
-        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home1") { (things) in
             for thing in things {
                 if thing.access == true {
                     self.thingsArray.append(thing)
@@ -38,7 +38,7 @@ class ShopVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     @objc func loadDataFromObserver(){
         //load data here
         thingsArray.removeAll()
-        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
+        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home1") { (things) in
             for thing in things {
                 if thing.access == true {
                     self.thingsArray.append(thing)

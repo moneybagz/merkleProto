@@ -35,41 +35,23 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
                 DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                     Money.instance.money = cash
                 }
+                // Copy static home node from firebase
+                DataService.instance.copyRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home1", completion: {
+                    self.getRoomData()
+                })
             }
         } else {
             DataService.instance.getMoney(withUid: Auth.auth().currentUser!.uid) { (cash) in
                 Money.instance.money = cash
             }
+            getRoomData()
         }
         
         
 
-        //Testing copying room data
-        DataService.instance.copyRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home2")
 
 
         
-//        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, roomNumber: "room1") { (things) in
-//
-//            // HARD CODeD THE ROOM DATA, BAD!
-//            for thing in things {
-//                print(thing.name, "!!")
-//                print(thing.unlockable)
-//                if thing.bought == true {
-//                    if thing.name == "bed" {
-//                        self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-//                    } else if thing.name == "painting" {
-//                        self.paintingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-//                    } else if thing.name == "shelf" {
-//                        self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-//                    } else if thing.name == "carpet" {
-//                        self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-//                    } else if thing.name == "table" {
-//                        self.tableImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
-//                    }
-//                }
-//            }
-//        }
         
         
         //FIREBASE SIGNOUT
@@ -94,6 +76,31 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getRoomData() {
+        
+        DataService.instance.getRoomData(withUid: Auth.auth().currentUser!.uid, homeNumber: "home1") { (things) in
+            
+            // HARD CODeD THE ROOM DATA, BAD!
+            for thing in things {
+                print(thing.name, "!!")
+                print(thing.unlockable)
+                if thing.bought == true {
+                    if thing.name == "bed" {
+                        self.bedImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "painting" {
+                        self.paintingImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "shelf" {
+                        self.shelfImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "carpet" {
+                        self.carpetImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    } else if thing.name == "table" {
+                        self.tableImageView.loadImagesUsingCacheWithUrlString(urlString: thing.imageUrl)
+                    }
+                }
+            }
+        }
     }
     
     //Scroll View delegate for zooming
