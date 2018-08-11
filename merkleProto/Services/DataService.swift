@@ -105,8 +105,8 @@ class DataService {
     
     func getRoomData(withUid uid: String, homeNumber: String, handler: @escaping (_ things: [Thing]) -> ()) {
         
-            var thingsArray = [Thing]()
-        REF_USERS.child(uid).child("homes").child(homeNumber).observeSingleEvent(of: .value) { (roomSnapshot) in
+        var thingsArray = [Thing]()
+        REF_USERS.child(uid).child("homes").child(homeNumber).child("things").observeSingleEvent(of: .value) { (roomSnapshot) in
             guard let roomSnapshot = roomSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for item in roomSnapshot {
@@ -144,7 +144,7 @@ class DataService {
         
         REF_USERS.child(uid).updateChildValues(["money": money])
         
-        REF_USERS.child(uid).child("homes").child(homeNumber).child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
+        REF_USERS.child(uid).child("homes").child(homeNumber).child("things").child(thing.name).updateChildValues(["bought" : true, "access": false],    withCompletionBlock: {error, ref in
             
             if error != nil{
                 print("ERROR")
@@ -154,7 +154,7 @@ class DataService {
                 // Access unlockables if they exist
                 if thing.unlockable.count > 0 {
                     for item in thing.unlockable {
-                        self.REF_USERS.child(uid).child("homes").child(homeNumber).child(item).updateChildValues(["access": true])
+                        self.REF_USERS.child(uid).child("homes").child(homeNumber).child("things").child(item).updateChildValues(["access": true])
                     }
                 }
                 
