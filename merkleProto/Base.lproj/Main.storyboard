@@ -40,7 +40,7 @@
                                                 <rect key="frame" x="137" y="217" width="828" height="441"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFT-6s-Xqf" userLabel="merky">
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LFT-6s-Xqf" userLabel="merky" customClass="APNGImageView" customModule="APNGKit">
                                                 <rect key="frame" x="165" y="269" width="338" height="315"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </view>
@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="bedImageView" destination="VIq-8P-cf4" id="dSz-Zj-7nD"/>
                         <outlet property="carpetImageView" destination="FAO-jE-kDc" id="BGW-GV-hoG"/>
+                        <outlet property="merkyAPNGview" destination="LFT-6s-Xqf" id="Ulc-Vo-97d"/>
                         <outlet property="paintingImageView" destination="s9a-LE-Pbg" id="Lja-Yh-ltp"/>
                         <outlet property="roomView" destination="j9s-HG-ImD" id="T3u-RP-xJm"/>
                         <outlet property="scrollView" destination="IiB-Zf-pyN" id="o9a-KM-EDB"/>

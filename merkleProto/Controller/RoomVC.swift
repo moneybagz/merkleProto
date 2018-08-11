@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import APNGKit
+
 
 class RoomVC: UIViewController, UIScrollViewDelegate {
 
@@ -20,6 +22,7 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet var paintingImageView: UIImageView!
     @IBOutlet var bedImageView: UIImageView!
     @IBOutlet var tableImageView: UIImageView!
+    @IBOutlet var merkyAPNGview: APNGImageView!
     
     
     
@@ -49,7 +52,23 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
         
 
-
+        let animationUrL = URL(string: "https://firebasestorage.googleapis.com/v0/b/merklez-4cebe.appspot.com/o/room1%2Fezgif.com-apng-maker%20(1).png?alt=media&token=01009b5f-b5c1-4ebd-a845-7e8e4fa05284")
+        
+        URLSession.shared.dataTask(with: animationUrL!) { (data, response, error) in
+            
+            if error != nil {
+                print(error as Any)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let animation = APNGImage(data: data!)
+                //let animationView = APNGImageView(image: animation)
+                self.merkyAPNGview.image = animation
+                self.merkyAPNGview.startAnimating()
+                
+            }
+        }.resume()
 
         
         
