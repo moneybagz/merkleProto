@@ -43,10 +43,13 @@ class BuyModalVC: UIViewController {
                     Money.instance.money! -= thing.cost
                     
                     //update collection view ui
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-
-                    self.dismiss(animated: false, completion: nil)
-                }                
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+//
+//                    self.dismiss(animated: false, completion: nil)
+                    
+                    let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "RoomVC") as! RoomVC
+                    self.present(roomVC, animated: true, completion: nil)
+                }
             }
         }
     }
