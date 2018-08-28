@@ -24,6 +24,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-HG-ImD">
                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0jM-sr-yUf">
+                                                <rect key="frame" x="380" y="436" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAO-jE-kDc">
                                                 <rect key="frame" x="71" y="361" width="929" height="495"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,8 +96,10 @@
                     <connections>
                         <outlet property="bedImageView" destination="VIq-8P-cf4" id="dSz-Zj-7nD"/>
                         <outlet property="carpetImageView" destination="FAO-jE-kDc" id="BGW-GV-hoG"/>
+                        <outlet property="menuButton" destination="gRa-lv-aga" id="7Q0-ZS-L9J"/>
                         <outlet property="merkyAPNGview" destination="LFT-6s-Xqf" id="Ulc-Vo-97d"/>
                         <outlet property="paintingImageView" destination="s9a-LE-Pbg" id="Lja-Yh-ltp"/>
+                        <outlet property="roomMenuView" destination="0jM-sr-yUf" id="0Bh-Lr-MN0"/>
                         <outlet property="roomView" destination="j9s-HG-ImD" id="T3u-RP-xJm"/>
                         <outlet property="scrollView" destination="IiB-Zf-pyN" id="o9a-KM-EDB"/>
                         <outlet property="shelfImageView" destination="w0c-XD-VF5" id="xZF-Aj-y4Z"/>

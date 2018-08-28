@@ -13,6 +13,9 @@
 		5343E6A720D2163B00C7A68A /* MoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343E6A620D2163B00C7A68A /* MoneyVC.swift */; };
 		536C854620DAEBB4001E356D /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C854520DAEBB4001E356D /* ShopCell.swift */; };
 		536D80CB20E58963008A035C /* BuyModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536D80CA20E58963008A035C /* BuyModalVC.swift */; };
+		537066AF2134CDC800E338E5 /* RoomMenuLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537066AE2134CDC800E338E5 /* RoomMenuLauncher.swift */; };
+		537066DD2134F58300E338E5 /* RoomMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 537066DC2134F58300E338E5 /* RoomMenu.xib */; };
+		537066DF2134F5A100E338E5 /* RoomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537066DE2134F5A100E338E5 /* RoomMenu.swift */; };
 		5372D55E20E36B0400636AC4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372D55D20E36B0400636AC4 /* Extensions.swift */; };
 		53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E020C9A382001B7DAF /* AppDelegate.swift */; };
 		53C659E320C9A382001B7DAF /* RoomVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C659E220C9A382001B7DAF /* RoomVC.swift */; };
@@ -34,6 +37,9 @@
 		5343E6A620D2163B00C7A68A /* MoneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyVC.swift; sourceTree = "<group>"; };
 		536C854520DAEBB4001E356D /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		536D80CA20E58963008A035C /* BuyModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyModalVC.swift; sourceTree = "<group>"; };
+		537066AE2134CDC800E338E5 /* RoomMenuLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMenuLauncher.swift; sourceTree = "<group>"; };
+		537066DC2134F58300E338E5 /* RoomMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomMenu.xib; sourceTree = "<group>"; };
+		537066DE2134F5A100E338E5 /* RoomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomMenu.swift; sourceTree = "<group>"; };
 		5372D55D20E36B0400636AC4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53C659DD20C9A382001B7DAF /* merkleProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = merkleProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C659E020C9A382001B7DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				536C854520DAEBB4001E356D /* ShopCell.swift */,
+				537066AE2134CDC800E338E5 /* RoomMenuLauncher.swift */,
+				537066DC2134F58300E338E5 /* RoomMenu.xib */,
+				537066DE2134F5A100E338E5 /* RoomMenu.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 				53C659F920CF0452001B7DAF /* GoogleService-Info.plist in Resources */,
 				53C659E820C9A384001B7DAF /* Assets.xcassets in Resources */,
 				53C659E620C9A382001B7DAF /* Main.storyboard in Resources */,
+				537066DD2134F58300E338E5 /* RoomMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +296,10 @@
 				536D80CB20E58963008A035C /* BuyModalVC.swift in Sources */,
 				53C659F320CC9BD2001B7DAF /* MenuVC.swift in Sources */,
 				5372D55E20E36B0400636AC4 /* Extensions.swift in Sources */,
+				537066DF2134F5A100E338E5 /* RoomMenu.swift in Sources */,
 				536C854620DAEBB4001E356D /* ShopCell.swift in Sources */,
 				53C659FE20CF4FE6001B7DAF /* AuthService.swift in Sources */,
+				537066AF2134CDC800E338E5 /* RoomMenuLauncher.swift in Sources */,
 				53C659E120C9A382001B7DAF /* AppDelegate.swift in Sources */,
 				53C659FC20CF2E68001B7DAF /* DataService.swift in Sources */,
 			);

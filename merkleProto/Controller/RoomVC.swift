@@ -23,7 +23,9 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     @IBOutlet var bedImageView: UIImageView!
     @IBOutlet var tableImageView: UIImageView!
     @IBOutlet var merkyAPNGview: APNGImageView!
+    @IBOutlet var roomMenuView: RoomMenu!
     
+    @IBOutlet var menuButton: UIButton!
     
     
     var thingsArray = [Thing]()
@@ -71,7 +73,7 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         }.resume()
 
         
-        
+        roomMenuView.isHidden = true
         
         //FIREBASE SIGNOUT
 //        do {
@@ -125,11 +127,17 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
     //Scroll View delegate for zooming
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return roomView
+        
     }
-
+    
+    let roomMenuLauncher = RoomMenuLauncher()
+    
     @IBAction func menuBtnPressed(_ sender: Any) {
-        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-        present(menuVC, animated: true, completion: nil)
+//        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+//        present(menuVC, animated: true, completion: nil)
+        
+        roomMenuLauncher.showMenu()
+        
     }
     
 //    @IBAction func unwind(_ sender: UIStoryboardSegue){}
