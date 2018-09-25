@@ -31,6 +31,7 @@ class RoomMenuLauncher: NSObject {
     
     func showMenu() {
         
+        
         if let window = UIApplication.shared.keyWindow {
             
             blackView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -46,6 +47,7 @@ class RoomMenuLauncher: NSObject {
 
             window.addSubview(roomMenu)
             
+    
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
                 self.blackView.alpha = 1

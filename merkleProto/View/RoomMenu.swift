@@ -9,7 +9,15 @@
 import UIKit
 import APNGKit
 
+protocol RoomMenuDelegate: class {
+    func presentMoneyVC()
+}
+
 class RoomMenu: UIView {
+    
+    weak var delegate:RoomMenuDelegate?
+    
+    
     
     
     @IBOutlet var menuAnimApngView1: APNGImageView!
@@ -30,6 +38,7 @@ class RoomMenu: UIView {
 
         self.addSubview(view)
         contentView = view
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +61,12 @@ class RoomMenu: UIView {
     }
     
     @IBAction func moneyBtn(_ sender: Any) {
+
+        
+      
+        
+        delegate?.presentMoneyVC()
+        
     }
     @IBAction func shopBtn(_ sender: Any) {
     }

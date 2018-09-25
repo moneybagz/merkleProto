@@ -11,7 +11,7 @@ import Firebase
 import APNGKit
 
 
-class RoomVC: UIViewController, UIScrollViewDelegate {
+class RoomVC: UIViewController, UIScrollViewDelegate, RoomMenuDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var roomView: UIView!
@@ -139,14 +139,22 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
     }
     
-    let roomMenuLauncher = RoomMenuLauncher()
+    var roomMenuLauncher = RoomMenuLauncher()
     
     @IBAction func menuBtnPressed(_ sender: Any) {
-//        let menuVC = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-//        present(menuVC, animated: true, completion: nil)
+        
+        roomMenuLauncher.roomMenu.delegate = self
         
         roomMenuLauncher.showMenu()
         
+    }
+    
+    func presentMoneyVC(){
+        
+        roomMenuLauncher.handleDismiss()
+        
+        let moneyVC = self.storyboard?.instantiateViewController(withIdentifier: "MoneyVC") as! MoneyVC
+        present(moneyVC, animated: true, completion: nil)
     }
     
 //    @IBAction func unwind(_ sender: UIStoryboardSegue){}
