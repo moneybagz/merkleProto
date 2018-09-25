@@ -7,7 +7,16 @@
 //
 
 import UIKit
+import APNGKit
+
 class RoomMenu: UIView {
+    
+    
+    @IBOutlet var menuAnimApngView1: APNGImageView!
+    @IBOutlet var menuAnimApngView2: APNGImageView!
+    @IBOutlet var menuAnimApngView3: APNGImageView!
+
+    
     
     let nibName = "RoomMenu"
     var contentView: UIView?
@@ -41,4 +50,13 @@ class RoomMenu: UIView {
         let nib = UINib(nibName: nibName, bundle: bundle)
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
+    
+    @IBAction func moneyBtn(_ sender: Any) {
+    }
+    @IBAction func shopBtn(_ sender: Any) {
+    }
+    @IBAction func merklesBtn(_ sender: Any) {
+    }
+    
+    
 }

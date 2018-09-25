@@ -54,7 +54,11 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
         
 
-        let animationUrL = URL(string: "https://firebasestorage.googleapis.com/v0/b/merklez-4cebe.appspot.com/o/room1%2Fezgif.com-apng-maker%20(1).png?alt=media&token=01009b5f-b5c1-4ebd-a845-7e8e4fa05284")
+        //let animationUrL = URL(string: "https://firebasestorage.googleapis.com/v0/b/merklez-4cebe.appspot.com/o/room1%2Fezgif.com-apng-maker%20(1).png?alt=media&token=01009b5f-b5c1-4ebd-a845-7e8e4fa05284")
+        
+//        let animationUrL = URL(string: "https://firebasestorage.googleapis.com/v0/b/merklez-4cebe.appspot.com/o/room1%2Fezgif.com-apng-maker.png?alt=media&token=7104f31d-c91f-4e3c-8883-25205c24cbd6")
+        
+        let animationUrL = URL(string: "https://firebasestorage.googleapis.com/v0/b/merklez-4cebe.appspot.com/o/room1%2Fezgif.com-apng-maker%20(2).png?alt=media&token=da81387c-829a-4048-a486-4a3815dedad9")
         
         URLSession.shared.dataTask(with: animationUrL!) { (data, response, error) in
             
@@ -86,11 +90,16 @@ class RoomVC: UIViewController, UIScrollViewDelegate {
         
         // ScrollView
         //scrollView.contentSize = roomView.bounds.size
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+        automaticallyAdjustsScrollViewInsets = false
+        }
         
         // For Zooming
         scrollView.delegate = self
-        scrollView.minimumZoomScale = 0.8
-        scrollView.maximumZoomScale = 1.6
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 2.0
         scrollView.zoomScale = 1.0
     }
 

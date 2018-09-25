@@ -10,13 +10,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomMenu" customModule="merkleProto" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomMenu" customModule="merkleProto" customModuleProvider="target">
+            <connections>
+                <outlet property="menuAnimApngView1" destination="3As-4R-3t5" id="9bA-Uc-qsp"/>
+                <outlet property="menuAnimApngView2" destination="SlH-VP-XKo" id="sPk-NT-G5e"/>
+                <outlet property="menuAnimApngView3" destination="nk4-iV-ohy" id="CtN-pA-Q6Q"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Tq-8A-iVv">
+                    <rect key="frame" x="20" y="20" width="335" height="627"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3As-4R-3t5" customClass="APNGImageView" customModule="APNGKit">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="209"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SlH-VP-XKo" customClass="APNGImageView" customModule="APNGKit">
+                            <rect key="frame" x="0.0" y="209" width="335" height="209"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nk4-iV-ohy" customClass="APNGImageView" customModule="APNGKit">
+                            <rect key="frame" x="0.0" y="418" width="335" height="209"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3yT-Y0-fbQ">
+                    <rect key="frame" x="20" y="20" width="335" height="627"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Bn-aE-iPv">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="104.5"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buf-4o-wAk">
+                            <rect key="frame" x="0.0" y="104.5" width="335" height="104.5"/>
+                            <connections>
+                                <action selector="moneyBtn:" destination="-1" eventType="touchUpInside" id="D1y-FU-VPk"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFG-qz-w67">
+                            <rect key="frame" x="0.0" y="209" width="335" height="104.5"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4z-yJ-jnz">
+                            <rect key="frame" x="0.0" y="313.5" width="335" height="104.5"/>
+                            <connections>
+                                <action selector="shopBtn:" destination="-1" eventType="touchUpInside" id="XlJ-j7-QF6"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8B-v1-PQ4">
+                            <rect key="frame" x="0.0" y="418" width="335" height="104.5"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvd-GX-7hV">
+                            <rect key="frame" x="0.0" y="522.5" width="335" height="104.5"/>
+                            <connections>
+                                <action selector="merklesBtn:" destination="-1" eventType="touchUpInside" id="VMc-FV-7O4"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7Tq-8A-iVv" secondAttribute="bottom" constant="20" id="4OT-j7-F9o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3yT-Y0-fbQ" secondAttribute="trailing" constant="20" id="Eee-VV-svd"/>
+                <constraint firstItem="7Tq-8A-iVv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Kae-vY-odQ"/>
+                <constraint firstItem="7Tq-8A-iVv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="QeK-MM-ajJ"/>
+                <constraint firstItem="3yT-Y0-fbQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="c2H-xn-Dci"/>
+                <constraint firstItem="3yT-Y0-fbQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fwj-Hd-Qvk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7Tq-8A-iVv" secondAttribute="trailing" constant="20" id="hIM-Sq-qaq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3yT-Y0-fbQ" secondAttribute="bottom" constant="20" id="wLA-OL-81e"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="44.5" y="148.5"/>
         </view>
     </objects>
 </document>
